@@ -1,5 +1,5 @@
 {
-  "name": "neusta/pimcore-notification-bundle",
+  "name": "neusta/pimcore-presentation-bundle",
   "type": "pimcore-bundle",
   "description": "",
   "license": "GPL-3.0-or-later",
@@ -13,7 +13,7 @@
   ],
   "require": {
     "php": "^7.2",
-    "pimcore/pimcore": ">=5.8 <6.4",
+    "pimcore/pimcore": ">=6.4",
     "symfony/config": "^3.4 || ^4.0",
     "symfony/console": "^3.4 || ^4.0",
     "symfony/dependency-injection": "^3.4 || ^4.0",
@@ -32,13 +32,13 @@
   "extra": {
     "pimcore": {
       "bundles": [
-        "Neusta\\Pimcore\\NotificationBundle\\NeustaPimcoreNotificationBundle"
+        "Neusta\\Pimcore\\PresentationBundle\\NeustaPimcorePresentationBundle"
       ]
     }
   },
   "autoload": {
     "psr-4": {
-      "Neusta\\Pimcore\\NotificationBundle\\": ""
+      "Neusta\\Pimcore\\PresentationBundle\\": ""
     },
     "exclude-from-classmap": [
       "/Tests/"
@@ -46,7 +46,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Neusta\\Pimcore\\NotificationBundle\\Tests\\": "Tests/"
+      "Neusta\\Pimcore\\PresentationBundle\\Tests\\": "Tests/"
     }
   },
   "scripts": {
