@@ -1,0 +1,60 @@
+{
+  "name": "neusta/pimcore-notification-bundle",
+  "type": "pimcore-bundle",
+  "description": "",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "team neusta GmbH",
+      "email": "info@team-neusta.de",
+      "homepage": "https://www.team-neusta.de/",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "pimcore/pimcore": ">=5.8 <6.4",
+    "symfony/config": "^3.4 || ^4.0",
+    "symfony/console": "^3.4 || ^4.0",
+    "symfony/dependency-injection": "^3.4 || ^4.0",
+    "symfony/event-dispatcher": "^3.4 || ^4.0",
+    "symfony/finder": "^3.4 || ^4.0",
+    "symfony/http-kernel": "^3.4 || ^4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.5",
+    "friendsofphp/php-cs-fixer": "^2.12"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "extra": {
+    "pimcore": {
+      "bundles": [
+        "Neusta\\Pimcore\\NotificationBundle\\NeustaPimcoreNotificationBundle"
+      ]
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Neusta\\Pimcore\\NotificationBundle\\": ""
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Neusta\\Pimcore\\NotificationBundle\\Tests\\": "Tests/"
+    }
+  },
+  "scripts": {
+    "cs": "php-cs-fixer fix -v --diff --dry-run",
+    "cs-fix": "php-cs-fixer fix -v --diff"
+  },
+  "scripts-descriptions": {
+    "cs": "Checks code style (but doesn't fix anything)",
+    "cs-fix": "Fixes code style"
+  }
+}

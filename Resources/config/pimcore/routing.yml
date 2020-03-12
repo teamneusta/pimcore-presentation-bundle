@@ -1,0 +1,3 @@
+presentation_homepage:
+    path:     /presentation
+    defaults: { _controller: PresentationBundle:Default:index }

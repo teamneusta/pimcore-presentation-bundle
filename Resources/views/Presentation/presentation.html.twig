@@ -1,0 +1,82 @@
+{% extends '@Presentation/layoutBase.html.twig' %}
+
+{% block main %}
+    {% if editmode %}
+        {{ 'slides.start.configuration'|trans|raw }}
+        <br>
+        <span>Theme:</span> {{ pimcore_select('theme', {
+            'store': [
+                ['/reveal.js/css/theme/beige.css','Beige'],
+                ['/reveal.js/css/theme/black.css','Black'],
+                ['/reveal.js/css/theme/blood.css','Blood'],
+                ['/reveal.js/css/theme/league.css','League'],
+                ['/reveal.js/css/theme/moon.css','Moon'],
+                ['/reveal.js/css/theme/night.css','Night'],
+                ['/reveal.js/css/theme/serif.css','Serif'],
+                ['/reveal.js/css/theme/simple.css','Simple'],
+                ['/reveal.js/css/theme/sky.css','Sky'],
+                ['/reveal.js/css/theme/solarized.css','Solarized'],
+                ['/reveal.js/css/theme/white.css','White'],
+            ],
+            'defaultValue':  '/reveal.js/css/theme/black.css',
+            'reload': true
+        }) }}
+    {% else %}
+        <div class="slides">
+            {{ slidesMarkup | raw }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{# Set theme #}
+{% block theme %}{{ pimcore_select('theme').getValue() }}{% endblock %}
+
+{% block scripts %}
+    <script src="{{ asset('/js/reveal.js') }}"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            {% if document.hasProperty('width') %}
+            width: {{ document.getProperty('width') }},
+            {% endif %}
+            {% if document.hasProperty('height') %}
+            height: {{ document.getProperty('height') }},
+            {% endif %}
+            {% if document.hasProperty('slideNumber') %}
+            slideNumber: {{ document.getProperty('slideNumber')==1 ?'true':'false' }},
+            {% endif %}
+            {% if document.hasProperty('controls') %}
+            controls: {{ document.getProperty('controls')==1 ?'true':'false' }},
+            {% endif %}
+            {% if document.hasProperty('progress') %}
+            progress: {{ document.getProperty('progress')==1 ?'true':'false' }},
+            {% endif %}
+            {% if document.hasProperty('hash') %}
+            hash: {{ document.getProperty('hash')==1 ?'true':'false' }},
+            {% endif %}
+
+            {% if document.hasProperty('transition') %}
+            transition: '{{ document.getProperty('transition') }}',
+            {% endif %}
+
+            {% if document.hasProperty('autoSlide') %}
+            autoSlide: {{ document.getProperty('autoSlide') }},
+            {% endif %}
+
+            {% if document.hasProperty('showNotes') %}
+            showNotes: {{ document.getProperty('showNotes')==1 ?'true':'false' }},
+            {% endif %}
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                {src: '/plugin/highlight/highlight.js'},
+                {src: 'plugin/search/search.js', async: true},
+                {src: 'plugin/zoom-js/zoom.js', async: true},
+                {src: '/plugin/notes/notes.js', async: true}
+            ]
+        });
+    </script>
+{% endblock %}

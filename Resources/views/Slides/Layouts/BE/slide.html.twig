@@ -1,0 +1,11 @@
+{% extends '@Presentation/layoutBase.html.twig' %}
+
+{% block main %}
+    <section>
+        {% if editmode %}
+            {% include '@Presentation/Slides/Layouts/FE/slide.editmode.html.twig' %}
+        {% else %}
+            {% include '@Presentation/Slides/Layouts/FE/slide.html.twig' %}
+        {% endif %}
+    </section>
+{% endblock main %}

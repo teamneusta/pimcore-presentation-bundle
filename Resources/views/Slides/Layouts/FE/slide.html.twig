@@ -1,0 +1,70 @@
+{% set showTitle = not pimcore_input('title').isEmpty() %}
+{#{% set showBackgroundImage = editmode or not pimcore_input('backgroundImage').isEmpty() %}#}
+{% set showFooter = not pimcore_snippet('footer').isEmpty() %}
+
+{% set showNorthRight = pimcore_areablock("north-right-content").getCount() > 0 %}
+{% set showNorth = pimcore_areablock("north-left-content").getCount() > 0 %}
+
+{% set showMiddleRight = pimcore_areablock("middle-right-content").getCount() > 0 %}
+{% set showMiddle = showNorthRight or pimcore_areablock("middle-left-content").getCount() > 0 %}
+
+{% set showSouthRight = pimcore_areablock("south-right-content").getCount() > 0 %}
+{% set showSouth = showNorthRight or pimcore_areablock("south-left-content").getCount() > 0 %}
+
+
+{% if showTitle %}
+    <header>
+        <div class="slideTitle">{{ pimcore_input('title') }}</div>
+    </header>
+{% endif %}
+
+<main>
+    {% if showNorth %}
+        <div class="flex-container content-area">
+            <div class="flex-child">
+                {{ pimcore_areablock("north-left-content") }}
+            </div>
+            {% if showNorthRight %}
+                <div class="flex-child">
+                    {{ pimcore_areablock("north-right-content") }}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if showMiddle %}
+        <div class="flex-container content-area">
+            <div class="flex-child">
+                {{ pimcore_areablock("middle-left-content") }}
+            </div>
+            {% if showMiddleRight %}
+                <div class="flex-child">
+                    {{ pimcore_areablock("middle-right-content") }}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if showSouth %}
+        <div class="flex-container content-area">
+            <div class="flex-child">
+                {{ pimcore_areablock("south-left-content") }}
+            </div>
+            {% if showSouthRight %}
+                <div class="flex-child">
+                    {{ pimcore_areablock("south-right-content") }}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+</main>
+
+{% if showFooter %}
+    {{ pimcore_snippet('footer', {
+        'title': 'Drop your footer snippet here.'
+    }) }}
+{% endif %}
+
+<aside class="notes">
+    {{ pimcore_wysiwyg('notes') }}
+</aside>

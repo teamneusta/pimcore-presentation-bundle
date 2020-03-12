@@ -1,0 +1,60 @@
+<header>
+    <div class="slideTitle">{{ pimcore_input('title') }}</div>
+</header>
+
+<main>
+    <div class="flex-container">
+        <div class="flex-child">
+            {{ pimcore_areablock("north-left-content") }}
+        </div>
+        <div class="flex-child">
+            {{ pimcore_areablock("north-right-content") }}
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="flex-child">
+            {{ pimcore_areablock("middle-left-content") }}
+        </div>
+        <div class="flex-child">
+            {{ pimcore_areablock("middle-right-content") }}
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="flex-child">
+            {{ pimcore_areablock("south-left-content") }}
+        </div>
+        <div class="flex-child">
+            {{ pimcore_areablock("south-right-content") }}
+        </div>
+    </div>
+</main>
+
+{{ pimcore_snippet('footer', {
+    'title': 'Drop your footer snippet here.'
+}) }}
+
+
+{# ------------- Slide specific settings ------------- #}
+<div class="slide-settings">
+    <h1>{{ 'Slide settings' | trans }}</h1>
+
+    <div class="notes">
+        <h2>Your notes:</h2>
+        {{ pimcore_wysiwyg('notes', {
+            "height": 300
+        }) }}
+    </div>
+
+    <div class="background-image">
+        <h2>Background image:</h2>
+        {{ pimcore_image("background-image", {
+            'title': 'Drop optionally background image here',
+            'width': 500,
+            'height': 300
+        }) }}
+    </div>
+
+</div>
+
