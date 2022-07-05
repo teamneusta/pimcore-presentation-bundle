@@ -7,7 +7,6 @@ use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
 class AbstractFrontendController extends PimcoreFrontendController
 {
-
     /**
      * @inheritDoc
      * @param FilterControllerEvent $event

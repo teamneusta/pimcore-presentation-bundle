@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Neusta\Pimcore\PresentationBundle\Document\Areabrick;
 
 class Image extends AbstractTemplateAreabrick
@@ -20,5 +19,4 @@ class Image extends AbstractTemplateAreabrick
     {
         return '';
     }
-
 }

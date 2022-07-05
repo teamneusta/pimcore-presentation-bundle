@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Neusta\Pimcore\PresentationBundle\Document\Areabrick;
-
 
 use Pimcore\Extension\Document\Areabrick\AbstractAreabrick;
 
@@ -11,7 +9,7 @@ abstract class AbstractTemplateAreabrick extends AbstractAreabrick
     /**
      * @inheritDoc
      */
-    public function getViewTemplate()
+    public function getTemplate()
     {
         // return null by default = auto-discover
         return null;
