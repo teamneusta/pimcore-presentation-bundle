@@ -17,6 +17,17 @@ Run the following command to install
 bin/composer require neusta/pimcore-presentation-bundle:dev-upgrade-to-x
 ```
 
+## Install reveal.js
+
+After the Bundle is installed it is required to manually install reveal-js
+
+```shell
+cd vendor/neusta/pimcore-presentation-bundle/Resources/public
+curl -OL https://github.com/hakimel/reveal.js/archive/master.zip
+unzip master.zip
+rm master.zip
+```
+
 ## TODO
 
 * update pipelines to add bundle to composer repo, see e.g. testing-framework
