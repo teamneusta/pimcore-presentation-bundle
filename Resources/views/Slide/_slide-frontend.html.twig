@@ -1,5 +1,4 @@
 {% set showTitle = not pimcore_input('title').isEmpty() %}
-{#{% set showBackgroundImage = editmode or not pimcore_input('backgroundImage').isEmpty() %}#}
 {% set showFooter = not pimcore_snippet('footer').isEmpty() %}
 
 {% set showNorthLeft = pimcore_areablock("north-left-content").getCount() > 0 %}
@@ -10,6 +9,14 @@
 
 {% set showSouthLeft = pimcore_areablock("south-left-content").getCount() > 0 %}
 {% set showSouthRight = pimcore_areablock("south-right-content").getCount() > 0 %}
+
+{% if not pimcore_image("background-image").isEmpty() %}
+    {% set backgroundImageProperty = ' data-background-image="' ~ pimcore_image("background-image").thumbnail('dumb') ~ '"' %}
+{% else %}
+    {% set backgroundImageProperty = '' %}
+{% endif %}
+
+<section{{ backgroundImageProperty|raw }}>
 
 {% if showTitle %}
     <header>
@@ -73,3 +80,5 @@
 <aside class="notes">
     {{ pimcore_wysiwyg('notes') }}
 </aside>
+
+</section>
