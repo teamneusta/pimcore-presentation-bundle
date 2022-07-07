@@ -12,3 +12,4 @@ services:
 
     Neusta\Pimcore\PresentationBundle\:
         resource: '../..'
+        exclude: ['../../Tests']
