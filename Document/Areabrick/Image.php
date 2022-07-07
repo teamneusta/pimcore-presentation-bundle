@@ -13,12 +13,4 @@ class Image extends AbstractTemplateAreabrick
     {
         return 'Image';
     }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return '';
-    }
 }

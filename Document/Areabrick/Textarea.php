@@ -13,12 +13,4 @@ class Textarea extends AbstractTemplateAreabrick
     {
         return 'Textarea';
     }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return '';
-    }
 }

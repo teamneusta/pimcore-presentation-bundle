@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Neusta\Pimcore\PresentationBundle;
 
@@ -30,7 +29,12 @@ class Installer extends AbstractInstaller
 
     private function installDocumentTypes(): void
     {
-        $typeDefinitions = include __DIR__ . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR .'document-types.php';
+        $typeDefinitionsFile =
+            __DIR__ . DIRECTORY_SEPARATOR .
+            'Resources' . DIRECTORY_SEPARATOR .
+            'config' . DIRECTORY_SEPARATOR .
+            'document-types.php';
+        $typeDefinitions = include $typeDefinitionsFile;
         foreach ($typeDefinitions as $typeDefinition) {
             $this->installDocumentType($typeDefinition);
         }

@@ -13,12 +13,4 @@ class Header extends AbstractTemplateAreabrick
     {
         return 'Header';
     }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return '';
-    }
 }

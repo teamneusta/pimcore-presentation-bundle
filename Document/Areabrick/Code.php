@@ -13,12 +13,4 @@ class Code extends AbstractTemplateAreabrick
     {
         return 'Code';
     }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return '';
-    }
 }

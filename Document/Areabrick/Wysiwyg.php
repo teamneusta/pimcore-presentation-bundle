@@ -13,12 +13,4 @@ class Wysiwyg extends AbstractTemplateAreabrick
     {
         return 'Wysiwyg';
     }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return '';
-    }
 }
