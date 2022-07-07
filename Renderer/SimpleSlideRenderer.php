@@ -21,7 +21,7 @@ class SimpleSlideRenderer implements SlideRenderer
         $backgroundImagePath = $this->getBackgroundImageURL($slide);
         $subSlides = $slide->getChildren() ?? [];
 
-        $sectionStartTag = $this->getStartTag($backgroundImagePath, count($subSlides));
+        $sectionStartTag = $this->getStartTag($backgroundImagePath);
 
         $slideMarkup = '';
         if (count($subSlides) === 0) {
@@ -57,17 +57,13 @@ class SimpleSlideRenderer implements SlideRenderer
         return $backgroundImageEditable->getImage();
     }
 
-    private function getStartTag(string $backgroundImagePath, int $numberOfSubSlides): string
+    private function getStartTag(string $backgroundImagePath): string
     {
-        $startTag = self::SECTION_START_TAG;
-
-        if ($numberOfSubSlides === 0) {
-            $startTag = str_replace('>', ' ' . $backgroundImagePath . '>', $startTag);
-        } else {
-            $startTag .= '<section ' . $backgroundImagePath . '>';
+        if ('' === $backgroundImagePath) {
+            return self::SECTION_START_TAG;
         }
 
-        return $startTag;
+        return str_replace('>', ' ' . $backgroundImagePath . '>', self::SECTION_START_TAG);
     }
 
     private function renderDocument(PageSnippet $page): string
