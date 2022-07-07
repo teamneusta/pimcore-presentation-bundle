@@ -8,10 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class PresentationController extends FrontendController
 {
-    public function __construct(
-        private readonly string $revealJsPublicPath,
-        private readonly PresentationRenderer $presentationRenderer
-    ) {
+    public function __construct(private readonly PresentationRenderer $presentationRenderer)
+    {
     }
 
     /**
@@ -20,7 +18,6 @@ class PresentationController extends FrontendController
     public function presentationAction(): array
     {
         return [
-            'revealJsPublicPath' => $this->revealJsPublicPath,
             'slidesMarkup' => $this->presentationRenderer->renderPresentation($this->document),
         ];
     }

@@ -3,11 +3,17 @@
 namespace Neusta\Pimcore\PresentationBundle\Twig;
 
 use Pimcore\Model\Document;
+use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 class PresentationExtension extends AbstractExtension
 {
+    public function __construct(Environment $twig, string $revealJsPublicPath)
+    {
+        $twig->addGlobal('revealJsPublicPath', $revealJsPublicPath);
+    }
+
     public function getFunctions(): array
     {
         return [
@@ -38,7 +44,7 @@ class PresentationExtension extends AbstractExtension
 
     private function findRecursive(string $editableName, Document\PageSnippet $document): ?Document\Editable
     {
-        if($document->hasEditable($editableName)) {
+        if ($document->hasEditable($editableName)) {
             return $document->getEditable($editableName);
         }
 

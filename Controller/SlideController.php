@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class SlideController extends FrontendController
 {
-    public function __construct(private readonly string $revealJsPublicPath)
+    public function __construct()
     {
     }
 
@@ -17,7 +17,7 @@ class SlideController extends FrontendController
     public function slideAction(): array
     {
         return [
-            'revealJsPublicPath' => $this->revealJsPublicPath,
+            // FIXME use slide renderer
         ];
     }
 }

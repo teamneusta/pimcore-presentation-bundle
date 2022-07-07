@@ -12,10 +12,8 @@ class SimpleSlideRenderer implements SlideRenderer
     private const SECTION_START_TAG = '<section>';
     private const SECTION_END_TAG = '</section>';
 
-    public function __construct(
-        private readonly Environment $twig,
-        private readonly string $revealJsPublicPath
-    ) {
+    public function __construct(private readonly Environment $twig)
+    {
     }
 
     public function renderSlide(PageSnippet $slide): string
@@ -80,10 +78,7 @@ class SimpleSlideRenderer implements SlideRenderer
 
         $documentBackup = $this->twig->getGlobals()['document'];
         $this->twig->addGlobal('document', $page);
-        $rendered = $this->twig->render($template, [
-            'document' => $page,
-            'revealJsPublicPath' => $this->revealJsPublicPath,
-        ]);
+        $rendered = $this->twig->render($template, ['document' => $page]);
         $this->twig->addGlobal('document', $documentBackup);
 
         return $rendered;
