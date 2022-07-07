@@ -14,7 +14,7 @@ class SlideController extends FrontendController
     /**
      * @Template()
      */
-    public function defaultAction(): array
+    public function slideAction(): array
     {
         return [
             'revealJsPublicPath' => $this->revealJsPublicPath,

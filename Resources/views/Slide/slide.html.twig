@@ -3,9 +3,9 @@
 {% block main %}
     <section>
         {% if editmode %}
-            {% include '@NeustaPimcorePresentation/Slides/Layouts/FE/slide.editmode.html.twig' %}
+            {% include '@NeustaPimcorePresentation/Slide/_slide-admin.html.twig' %}
         {% else %}
-            {% include '@NeustaPimcorePresentation/Slides/Layouts/FE/slide.html.twig' %}
+            {% include '@NeustaPimcorePresentation/Slide/_slide-frontend.html.twig' %}
         {% endif %}
     </section>
 {% endblock main %}

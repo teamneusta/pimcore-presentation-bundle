@@ -73,7 +73,7 @@ class SimpleSlideRenderer implements SlideRenderer
     private function renderDocument(PageSnippet $page): string
     {
 //        $templatePath = $page->getTemplate();
-        $templatePath = '@NeustaPimcorePresentation/Slides/Layouts/BE/slide.html.twig';
+        $templatePath = '@NeustaPimcorePresentation/Slide/slide.html.twig';
         $template = str_replace('/BE/', '/FE/', $templatePath ?? '');
 
         $documentBackup = $this->twig->getGlobals()['document'];
