@@ -1,14 +1,17 @@
 <?php
 
+use Neusta\Pimcore\PresentationBundle\Controller\PresentationController;
+use Neusta\Pimcore\PresentationBundle\Controller\SlideController;
+use Neusta\Pimcore\PresentationBundle\Controller\SnippetController;
+
 return [
     1000 => [
         "id" => 1000,
         "name" => "Slide",
         "group" => "presentation",
         "module" => NULL,
-        "controller" => "@AppBundle\\Controller\\DefaultController",
-        "action" => "default",
-        "template" => "PresentationBundle:Slides/Layouts/BE:slide.html.twig",
+        "controller" => SlideController::class . '::slideAction',
+        "template" => "@NeustaPimcorePresentation/Slide/slide.html.twig",
         "type" => "page",
         "priority" => 0,
         "creationDate" => 1583233050,
@@ -19,9 +22,8 @@ return [
         "name" => "Presentation",
         "group" => "presentation",
         "module" => NULL,
-        "controller" => "@Neusta\\Pimcore\\PresentationBundle\\Controller\\PresentationController",
-        "action" => "presentation",
-        "template" => "PresentationBundle:Presentation:presentation.html.twig",
+        "controller" => PresentationController::class . '::presentationAction',
+        "template" => "@NeustaPimcorePresentation/Presentation/presentation.html.twig",
         "type" => "page",
         "priority" => 0,
         "creationDate" => 1583233454,
@@ -32,9 +34,8 @@ return [
         "name" => "Slide footer",
         "group" => "presentation",
         "module" => NULL,
-        "controller" => "@Neusta\\Pimcore\\PresentationBundle\\Controller\\SnippetController",
-        "action" => "footer",
-        "template" => "PresentationBundle:snippet:footer.html.twig",
+        "controller" => SnippetController::class . '::footerAction',
+        "template" => "@NeustaPimcorePresentation/Snippet/footer.html.twig",
         "type" => "snippet",
         "priority" => 0,
         "creationDate" => 1583406926,
