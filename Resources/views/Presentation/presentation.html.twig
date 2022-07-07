@@ -1,5 +1,4 @@
 {% extends '@NeustaPimcorePresentation/layoutBase.html.twig' %}
-{% set defaultFallbackTheme = revealJsPublicPath ~ '/dist/theme/black.css' %}
 
 {% block main %}
     {% if editmode %}
@@ -19,7 +18,7 @@
                 [revealJsPublicPath ~ '/dist/theme/solarized.css','Solarized'],
                 [revealJsPublicPath ~ '/dist/theme/white.css','White'],
             ],
-            defaultValue: defaultFallbackTheme,
+            defaultValue: revealJsPublicPath ~ '/dist/theme/black.css',
             reload: true
         }) }}
     {% elseif slidesMarkup is empty %}
@@ -36,9 +35,6 @@
         </div>
     {% endif %}
 {% endblock %}
-
-{# Set theme #}
-{% block theme %}{{ pimcore_select('theme').value|default(defaultFallbackTheme) }}{% endblock %}
 
 {% block scripts %}
     <script src="{{ revealJsPublicPath }}/dist/reveal.js"></script>

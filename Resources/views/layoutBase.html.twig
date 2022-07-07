@@ -17,7 +17,7 @@
     {% else %}
         <link rel="stylesheet" href="{{ revealJsPublicPath }}/dist/reset.css">
         <link rel="stylesheet" href="{{ revealJsPublicPath }}/dist/reveal.css">
-        <link rel="stylesheet" href="{% block theme %}{{ revealJsPublicPath }}/dist/theme/black.css{% endblock %}" id="theme">
+        <link rel="stylesheet" href="{{ presentation_theme() }}" id="theme">
     {% endif %}
 
     {% block styles %}{% endblock %}
