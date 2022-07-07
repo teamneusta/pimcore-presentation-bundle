@@ -2,15 +2,14 @@
 {#{% set showBackgroundImage = editmode or not pimcore_input('backgroundImage').isEmpty() %}#}
 {% set showFooter = not pimcore_snippet('footer').isEmpty() %}
 
+{% set showNorthLeft = pimcore_areablock("north-left-content").getCount() > 0 %}
 {% set showNorthRight = pimcore_areablock("north-right-content").getCount() > 0 %}
-{% set showNorth = pimcore_areablock("north-left-content").getCount() > 0 %}
 
+{% set showMiddleLeft = pimcore_areablock("middle-left-content").getCount() > 0 %}
 {% set showMiddleRight = pimcore_areablock("middle-right-content").getCount() > 0 %}
-{% set showMiddle = showNorthRight or pimcore_areablock("middle-left-content").getCount() > 0 %}
 
+{% set showSouthLeft = pimcore_areablock("south-left-content").getCount() > 0 %}
 {% set showSouthRight = pimcore_areablock("south-right-content").getCount() > 0 %}
-{% set showSouth = showNorthRight or pimcore_areablock("south-left-content").getCount() > 0 %}
-
 
 {% if showTitle %}
     <header>
@@ -19,11 +18,13 @@
 {% endif %}
 
 <main>
-    {% if showNorth %}
+    {% if showNorthLeft or showNorthRight %}
         <div class="flex-container content-area">
-            <div class="flex-child">
-                {{ pimcore_areablock("north-left-content") }}
-            </div>
+            {% if showNorthLeft %}
+                <div class="flex-child">
+                    {{ pimcore_areablock("north-left-content") }}
+                </div>
+            {% endif %}
             {% if showNorthRight %}
                 <div class="flex-child">
                     {{ pimcore_areablock("north-right-content") }}
@@ -32,11 +33,13 @@
         </div>
     {% endif %}
 
-    {% if showMiddle %}
+    {% if showMiddleLeft or showMiddleRight %}
         <div class="flex-container content-area">
-            <div class="flex-child">
-                {{ pimcore_areablock("middle-left-content") }}
-            </div>
+            {% if showMiddleLeft %}
+                <div class="flex-child">
+                    {{ pimcore_areablock("middle-left-content") }}
+                </div>
+            {% endif %}
             {% if showMiddleRight %}
                 <div class="flex-child">
                     {{ pimcore_areablock("middle-right-content") }}
@@ -45,11 +48,13 @@
         </div>
     {% endif %}
 
-    {% if showSouth %}
+    {% if showSouthLeft or showSouthRight %}
         <div class="flex-container content-area">
-            <div class="flex-child">
-                {{ pimcore_areablock("south-left-content") }}
-            </div>
+            {% if showSouthLeft %}
+                <div class="flex-child">
+                    {{ pimcore_areablock("south-left-content") }}
+                </div>
+            {% endif %}
             {% if showSouthRight %}
                 <div class="flex-child">
                     {{ pimcore_areablock("south-right-content") }}

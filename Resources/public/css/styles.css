@@ -1,0 +1,7 @@
+div.flex-container {
+    display: flex;
+}
+
+div.flex-container div.flex-child {
+    flex: 1 1 auto;
+}
