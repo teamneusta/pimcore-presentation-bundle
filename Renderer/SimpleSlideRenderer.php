@@ -18,19 +18,13 @@ class SimpleSlideRenderer implements SlideRenderer
 
     public function renderSlide(PageSnippet $slide): string
     {
-        $backgroundImagePath = $this->getBackgroundImageURL($slide);
-        $subSlides = $slide->getChildren() ?? [];
-
-        $sectionStartTag = $this->getStartTag($backgroundImagePath);
-
-        $slideMarkup = '';
-        if (count($subSlides) === 0) {
-            $slideMarkup .= $sectionStartTag . $this->renderDocument($slide) . self::SECTION_END_TAG;
-        } else {
-            $slideMarkup .= $sectionStartTag . $this->renderDocument($slide) . self::SECTION_END_TAG;
-            foreach ($subSlides as $subSlide) $slideMarkup .= $this->renderSlide($subSlide);
-            $slideMarkup .= self::SECTION_END_TAG;
+        $slideMarkup = $this->getStartTag($this->getBackgroundImageURL($slide));
+        $slideMarkup .= $this->renderDocument($slide);
+        foreach ($slide->getChildren() ?? [] as $subSlide) {
+            $slideMarkup .= $this->renderSlide($subSlide);
         }
+        $slideMarkup .= self::SECTION_END_TAG;
+
         return $slideMarkup;
     }
 
@@ -68,9 +62,7 @@ class SimpleSlideRenderer implements SlideRenderer
 
     private function renderDocument(PageSnippet $page): string
     {
-//        $templatePath = $page->getTemplate();
-        $templatePath = '@NeustaPimcorePresentation/Slide/partial.html.twig';
-        $template = str_replace('/BE/', '/FE/', $templatePath ?? '');
+        $template = '@NeustaPimcorePresentation/Slide/partial.html.twig';
 
         $documentBackup = $this->twig->getGlobals()['document'];
         $this->twig->addGlobal('document', $page);
