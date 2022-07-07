@@ -2,7 +2,6 @@
 
 namespace Neusta\Pimcore\PresentationBundle;
 
-use Neusta\Pimcore\PresentationBundle\DependencyInjection\NeustaPimcorePresentationExtension;
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
 use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
 
