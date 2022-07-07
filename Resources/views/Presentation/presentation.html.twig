@@ -21,6 +21,14 @@
             'defaultValue': revealJsPublicPath ~ '/dist/theme/black.css',
             'reload': true
         }) }}
+    {% elseif slidesMarkup is empty %}
+        <div class="slides">
+            <section>
+                <span class="error-presentation-has-no-slides">
+                    ERROR: This Presentation has no Slides!
+                </span>
+            </section>
+        </div>
     {% else %}
         <div class="slides">
             {{ slidesMarkup | raw }}

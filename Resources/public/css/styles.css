@@ -5,3 +5,9 @@ div.flex-container {
 div.flex-container div.flex-child {
     flex: 1 1 auto;
 }
+
+.error-presentation-has-no-slides {
+    border: 5px dashed red;
+    border-radius: 25px;
+    padding: 2rem;
+}
