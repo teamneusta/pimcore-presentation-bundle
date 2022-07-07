@@ -2,11 +2,16 @@
 
 namespace Neusta\Pimcore\PresentationBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
+use Pimcore\Controller\FrontendController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class SnippetController extends AbstractFrontendController
+class SnippetController extends FrontendController
 {
-    public function footerAction(Request $request)
+    /**
+     * @Template()
+     */
+    public function footerAction(): array
     {
+        return [];
     }
 }
