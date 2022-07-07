@@ -20,3 +20,7 @@ bin/composer require neusta/pimcore-presentation-bundle:dev-upgrade-to-x
 ## TODO
 
 * update pipelines to add bundle to composer repo, see e.g. testing-framework
+* Refactor SimpleSlideRenderer
+* automate reveal-js installation (npm? just include it and be done with it?)
+* make `revealJsPublicPath` a twig global or something / do not require it to be added to every render call
+* fix layoutBase for editing mode
