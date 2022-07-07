@@ -1,11 +1,15 @@
-{% extends '@NeustaPimcorePresentation/layoutBase.html.twig' %}
-
-{% block main %}
-    <section>
-        {% if editmode %}
-            {% include '@NeustaPimcorePresentation/Slide/_slide-admin.html.twig' %}
-        {% else %}
-            {% include '@NeustaPimcorePresentation/Slide/_slide-frontend.html.twig' %}
-        {% endif %}
-    </section>
-{% endblock main %}
+{% if editmode %}
+    {% embed '@NeustaPimcorePresentation/layoutBase.html.twig' %}
+        {% block main %}{% include '@NeustaPimcorePresentation/Slide/_slide-admin.html.twig' %}{% endblock main %}
+    {% endembed %}
+{% else %}
+    {% embed '@NeustaPimcorePresentation/Presentation/presentation.html.twig' %}
+        {% block main %}
+            <div class="slides">
+                <section>
+                    {% include '@NeustaPimcorePresentation/Slide/_slide-frontend.html.twig' %}
+                </section>
+            </div>
+        {% endblock main %}
+    {% endembed %}
+{% endif %}

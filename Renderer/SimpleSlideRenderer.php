@@ -12,8 +12,10 @@ class SimpleSlideRenderer implements SlideRenderer
     private const SECTION_START_TAG = '<section>';
     private const SECTION_END_TAG = '</section>';
 
-    public function __construct(private readonly Environment $twig)
-    {
+    public function __construct(
+        private readonly Environment $twig,
+        private readonly string $revealJsPublicPath
+    ) {
     }
 
     public function renderSlide(PageSnippet $slide): string
@@ -73,12 +75,15 @@ class SimpleSlideRenderer implements SlideRenderer
     private function renderDocument(PageSnippet $page): string
     {
 //        $templatePath = $page->getTemplate();
-        $templatePath = '@NeustaPimcorePresentation/Slide/slide.html.twig';
+        $templatePath = '@NeustaPimcorePresentation/Slide/partial.html.twig';
         $template = str_replace('/BE/', '/FE/', $templatePath ?? '');
 
         $documentBackup = $this->twig->getGlobals()['document'];
         $this->twig->addGlobal('document', $page);
-        $rendered = $this->twig->render($template, ['document' => $page]);
+        $rendered = $this->twig->render($template, [
+            'document' => $page,
+            'revealJsPublicPath' => $this->revealJsPublicPath,
+        ]);
         $this->twig->addGlobal('document', $documentBackup);
 
         return $rendered;
