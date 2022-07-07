@@ -1,0 +1,34 @@
+include:
+    - project: NSD/p_pimcore/pimcore-ci-templates
+      ref: 0.9.1
+      file:
+          - gitlab-ci/composer.yaml
+          - gitlab-ci/security.yaml
+          - gitlab-ci/phpunit.yaml
+
+stages:
+    - build
+    - test
+    - package
+
+build:vendor:
+    stage: build
+    extends: .composer-install
+
+test:security:
+    stage: test
+    extends: .composer-security
+    needs:
+        - build:vendor
+
+test:phpunit:
+    stage: test
+    extends: .phpunit-with-coverage
+    needs:
+        - build:vendor
+
+package:composer:
+    stage: package
+    extends: .composer-package-on-tag
+    needs:
+        - test:phpunit
