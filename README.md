@@ -31,5 +31,4 @@ rm master.zip
 ## TODO
 
 * update pipelines to add bundle to composer repo, see e.g. testing-framework
-* Refactor SimpleSlideRenderer
 * automate reveal-js installation (npm? just include it and be done with it?)
