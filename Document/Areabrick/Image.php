@@ -6,9 +6,6 @@ use Pimcore\Extension\Document\Areabrick\AbstractTemplateAreabrick;
 
 class Image extends AbstractTemplateAreabrick
 {
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return 'Image';

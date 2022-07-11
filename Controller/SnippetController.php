@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class SnippetController extends FrontendController
 {
     /**
-     * @Template()
+     * @Template
      */
     public function footerAction(): array
     {

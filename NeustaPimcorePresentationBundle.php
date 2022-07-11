@@ -19,20 +19,20 @@ class NeustaPimcorePresentationBundle extends AbstractPimcoreBundle
         return 'Allows to turn Pages into Presentations';
     }
 
-    protected function getComposerPackageName(): string
-    {
-        return 'neusta/pimcore-presentation-bundle';
-    }
-
     public function getJsPaths()
     {
         return [
-            '/bundles/presentation/js/pimcore/startup.js'
+            '/bundles/presentation/js/pimcore/startup.js',
         ];
     }
 
     public function getInstaller()
     {
         return new Installer();
+    }
+
+    protected function getComposerPackageName(): string
+    {
+        return 'neusta/pimcore-presentation-bundle';
     }
 }

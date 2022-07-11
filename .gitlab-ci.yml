@@ -8,6 +8,9 @@ include:
           - gitlab-ci/lint-yaml.yaml
           - gitlab-ci/phpunit.yaml
 
+variables:
+    PHPQA_IMAGE: 'docker-repository.intern.neusta.de/jakzal/phpqa:php8.1-alpine'
+
 stages:
     - build
     - test

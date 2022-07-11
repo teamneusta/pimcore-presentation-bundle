@@ -12,7 +12,7 @@ class SlideController extends FrontendController
     }
 
     /**
-     * @Template()
+     * @Template
      */
     public function slideAction(): array
     {

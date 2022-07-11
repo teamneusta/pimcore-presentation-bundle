@@ -30,9 +30,9 @@ class Installer extends AbstractInstaller
     private function installDocumentTypes(): void
     {
         $typeDefinitionsFile =
-            __DIR__ . DIRECTORY_SEPARATOR .
-            'Resources' . DIRECTORY_SEPARATOR .
-            'config' . DIRECTORY_SEPARATOR .
+            __DIR__ . \DIRECTORY_SEPARATOR .
+            'Resources' . \DIRECTORY_SEPARATOR .
+            'config' . \DIRECTORY_SEPARATOR .
             'document-types.php';
         $typeDefinitions = include $typeDefinitionsFile;
         foreach ($typeDefinitions as $typeDefinition) {

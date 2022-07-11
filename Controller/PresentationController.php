@@ -13,7 +13,7 @@ class PresentationController extends FrontendController
     }
 
     /**
-     * @Template()
+     * @Template
      */
     public function presentationAction(): array
     {

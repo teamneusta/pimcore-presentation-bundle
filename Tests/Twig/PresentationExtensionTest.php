@@ -13,14 +13,20 @@ class PresentationExtensionTest extends TestCase
 {
     use ProphecyTrait;
 
-    public function testExtensionProvidesFunctionPresentationTheme(): void
+    /**
+     * @test
+     */
+    public function extensionProvidesFunctionPresentationTheme(): void
     {
         $presentationExtension = $this->createPresentationExtension();
         self::assertCount(1, $presentationExtension->getFunctions());
         self::assertSame('presentation_theme', $presentationExtension->getFunctions()[0]->getName());
     }
 
-    public function testGetThemeReturnsThemeOfCurrentDocumentIfAvailable(): void
+    /**
+     * @test
+     */
+    public function getThemeReturnsThemeOfCurrentDocumentIfAvailable(): void
     {
         $presentationExtension = $this->createPresentationExtension();
 
@@ -33,7 +39,10 @@ class PresentationExtensionTest extends TestCase
         self::assertSame('file name of the expected theme', $presentationExtension->getThemeFile($context));
     }
 
-    public function testGetThemeReturnsThemeOfParentDocumentIfAvailable(): void
+    /**
+     * @test
+     */
+    public function getThemeReturnsThemeOfParentDocumentIfAvailable(): void
     {
         $presentationExtension = $this->createPresentationExtension();
 
