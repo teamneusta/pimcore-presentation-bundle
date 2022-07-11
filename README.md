@@ -32,3 +32,5 @@ rm master.zip
 
 * update pipelines to add bundle to composer repo, see e.g. testing-framework
 * automate reveal-js installation (npm? just include it and be done with it?)
+* presentation settings via editables instead of "hidden" document properties
+* FIXME: a pimcore image thumbnail config named 'dumb' is required
