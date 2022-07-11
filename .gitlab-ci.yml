@@ -8,8 +8,13 @@ include:
           - gitlab-ci/lint-yaml.yaml
           - gitlab-ci/phpunit.yaml
 
+.images:
+    pimcore-10: &pimcore10 'docker-repository.intern.neusta.de/pimcore/pimcore:PHP8.1-cli'
+
 variables:
-    PIMCORE_10_IMAGE: 'docker-repository.intern.neusta.de/pimcore/pimcore:PHP8.1-cli'
+    PIMCORE_10_IMAGE: *pimcore10
+    PIMCORE_IMAGE: *pimcore10
+    COMPOSER_IMAGE: *pimcore10
     PHPQA_IMAGE: 'docker-repository.intern.neusta.de/jakzal/phpqa:php8.1-alpine'
     LINT_TWIG_DIR: 'Resources/views'
     LINT_YAML_DIR: 'Resources/config'
