@@ -1,73 +1,79 @@
 <?php
-declare(strict_types=1);
 
-$finder = PhpCsFixer\Finder::create()
-    ->in(__DIR__)
-    ->exclude([
-        __DIR__ . '/Resources',
-        __DIR__ . '/vendor',
-    ])
-;
-
-// do not enable self_accessor as it breaks pimcore models relying on get_called_class()
-return PhpCsFixer\Config::create()
-    ->setFinder($finder)
+return (new PhpCsFixer\Config)
+    ->setFinder((new PhpCsFixer\Finder)
+        ->in(__DIR__)
+        ->notPath('DependencyInjection/Configuration.php')
+    )
     ->setRiskyAllowed(true)
     ->setRules([
-        '@PSR1'                  => true,
-        '@PSR2'                  => true,
-        'array_syntax'           => ['syntax' => 'short'],
-        // keep aligned = and => operators as they are: do not force aligning, but do not remove it
-        'binary_operator_spaces' => ['align_double_arrow' => null, 'align_equals' => null],
-        'blank_line_before_return'            => true,
-        'encoding'                            => true,
-        'function_typehint_space'             => true,
-        'hash_to_slash_comment'               => true,
-        'lowercase_cast'                      => true,
-        'magic_constant_casing'               => true,
-        'method_argument_space'               => ['ensure_fully_multiline' => false],
-        'method_separation'                   => true,
-        'native_function_casing'              => true,
-        'no_blank_lines_after_class_opening'  => true,
-        'no_blank_lines_after_phpdoc'         => true,
-        'no_empty_comment'                    => true,
-        'no_empty_phpdoc'                     => true,
-        'no_empty_statement'                  => true,
-        'no_extra_consecutive_blank_lines'    => true,
-        'no_leading_import_slash'             => true,
-        'no_leading_namespace_whitespace'     => true,
-        'no_short_bool_cast'                  => true,
-        'no_spaces_around_offset'             => true,
-        'no_unneeded_control_parentheses'     => true,
-        'no_unused_imports'                   => true,
-        'no_whitespace_before_comma_in_array' => true,
-        'no_whitespace_in_blank_line'         => true,
-        'object_operator_without_whitespace'  => true,
-        'ordered_imports'                     => true,
-        'phpdoc_indent'                       => true,
-        'phpdoc_no_useless_inheritdoc'        => true,
-        'phpdoc_scalar'                       => true,
-        'phpdoc_separation'                   => true,
-        'phpdoc_single_line_var_spacing'      => true,
-        'return_type_declaration'             => true,
-        'short_scalar_cast'                   => true,
-        'single_blank_line_before_namespace'  => true,
-        'single_quote'                        => true,
-        'space_after_semicolon'               => true,
-        'standardize_not_equals'              => true,
-        'ternary_operator_spaces'             => true,
-        'whitespace_after_comma_in_array'     => true,
-        // bundle specific rules
-        '@PHP71Migration'                     => true,
-        '@PHP71Migration:risky'               => true,
-        'align_multiline_comment'             => true,
-        'concat_space'                        => ['spacing' => 'one'],
-        'method_chaining_indentation'         => true,
-        'no_useless_else'                     => true,
-        'no_useless_return'                   => true,
-        'ordered_class_elements'              => true,
+        // See: https://mlocati.github.io/php-cs-fixer-configurator
+        '@PHP74Migration' => true,
+        '@Symfony' => true,
+        '@Symfony:risky' => true,
+        '@DoctrineAnnotation' => true,
+        '@PHPUnit84Migration:risky' => true,
+        'array_push' => true,
+        'blank_line_after_opening_tag' => false,
+        'class_attributes_separation' => ['elements' => ['method' => 'one']],
+        'class_definition' => ['single_item_single_line' => true],
+        'combine_consecutive_unsets' => true,
+        'heredoc_indentation' => ['indentation' => 'same_as_start'],
+        'heredoc_to_nowdoc' => true,
+        'linebreak_after_opening_tag' => false,
+        'mb_str_functions' => true,
+        'method_chaining_indentation' => true,
+        'native_constant_invocation' => [
+            'fix_built_in' => false,
+            'include' => [
+                'DIRECTORY_SEPARATOR',
+                'PHP_INT_SIZE',
+                'PHP_SAPI',
+                'PHP_VERSION_ID',
+            ],
+            'scope' => 'namespaced',
+            'strict' => true,
+        ],
+        'native_function_invocation' => [
+            'include' => [
+                '@compiler_optimized',
+            ],
+            'scope' => 'namespaced',
+            'strict' => true,
+        ],
+        'new_with_braces' => false,
+        'no_extra_blank_lines' => [
+            'break',
+            'continue',
+            'extra',
+            'return',
+            'throw',
+            'use',
+            'parenthesis_brace_block',
+            'square_brace_block',
+            'curly_brace_block',
+        ],
+        'no_null_property_initialization' => true,
+        'no_short_echo_tag' => true,
+        'no_superfluous_phpdoc_tags' => ['allow_mixed' => true, 'remove_inheritdoc' => true],
+        'no_unreachable_default_argument_value' => true,
+        'no_useless_else' => true,
+        'no_useless_return' => true,
+        'ordered_class_elements' => true,
+        'ordered_traits' => false,
+        'php_unit_method_casing' => false,
+        'php_unit_strict' => false,
+        'php_unit_test_annotation' => ['style' => 'annotation'],
+        'php_unit_test_case_static_method_calls' => ['call_type' => 'self'],
+        'php_unit_test_class_requires_covers' => false,
         'phpdoc_add_missing_param_annotation' => true,
-        'phpdoc_order'                        => true,
-        'return_assignment'                   => true,
-        'strict_param'                        => true,
+        'phpdoc_order' => true,
+        'phpdoc_summary' => false,
+        'return_assignment' => true,
+        'simple_to_complex_string_variable' => true,
+        'simplified_if_return' => true,
+        'single_line_throw' => false,
+        'strict_comparison' => true,
+        'strict_param' => true,
+        'visibility_required' => ['property', 'method', 'const']
     ]);

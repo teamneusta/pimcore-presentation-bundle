@@ -3,7 +3,6 @@ include:
       ref: 0.9.1
       file:
           - gitlab-ci/composer.yaml
-          - gitlab-ci/security.yaml
           - gitlab-ci/phpunit.yaml
 
 stages:
@@ -18,6 +17,24 @@ build:vendor:
 test:security:
     stage: test
     extends: .composer-security
+    needs:
+        - build:vendor
+
+test:code-style:
+    stage: test
+    extends: .php-cs-fixer
+    needs:
+        - build:vendor
+
+test:lint-twig:
+    stage: test
+    extends: .lint-twig
+    needs:
+        - build:vendor
+
+test:lint-yaml:
+    stage: test
+    extends: .lint-yaml
     needs:
         - build:vendor
 
