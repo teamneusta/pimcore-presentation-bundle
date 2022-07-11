@@ -3,6 +3,9 @@ include:
       ref: 0.9.1
       file:
           - gitlab-ci/composer.yaml
+          - gitlab-ci/cs-fixer.yaml
+          - gitlab-ci/lint-twig.yaml
+          - gitlab-ci/lint-yaml.yaml
           - gitlab-ci/phpunit.yaml
 
 stages:
