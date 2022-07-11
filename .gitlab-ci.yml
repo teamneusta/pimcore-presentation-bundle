@@ -5,7 +5,6 @@ include:
           - gitlab-ci/composer.yaml
           - gitlab-ci/cs-fixer.yaml
           - gitlab-ci/lint-twig.yaml
-          - gitlab-ci/lint-yaml.yaml
           - gitlab-ci/phpunit.yaml
 
 .images:
@@ -43,12 +42,6 @@ test:code-style:
 test:lint-twig:
     stage: test
     extends: .lint-twig
-    needs:
-        - build:vendor
-
-test:lint-yaml:
-    stage: test
-    extends: .lint-yaml
     needs:
         - build:vendor
 
