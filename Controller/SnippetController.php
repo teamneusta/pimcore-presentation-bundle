@@ -3,15 +3,12 @@
 namespace Neusta\Pimcore\PresentationBundle\Controller;
 
 use Pimcore\Controller\FrontendController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
 class SnippetController extends FrontendController
 {
-    /**
-     * @Template
-     */
-    public function footerAction(): array
+    public function footerAction(): Response
     {
-        return [];
+        return $this->render('NeustaPimcorePresentationBundle:Snippet:footer.html.twig', []);
     }
 }

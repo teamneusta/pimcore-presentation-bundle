@@ -4,7 +4,7 @@ namespace Neusta\Pimcore\PresentationBundle\Controller;
 
 use Neusta\Pimcore\PresentationBundle\Renderer\PresentationRenderer;
 use Pimcore\Controller\FrontendController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
 class PresentationController extends FrontendController
 {
@@ -12,13 +12,10 @@ class PresentationController extends FrontendController
     {
     }
 
-    /**
-     * @Template
-     */
-    public function presentationAction(): array
+    public function presentationAction(): Response
     {
-        return [
+        return $this->render('NeustaPimcorePresentationBundle:Presentation:presentation.html.twig', [
             'slidesMarkup' => $this->presentationRenderer->renderPresentation($this->document),
-        ];
+        ]);
     }
 }

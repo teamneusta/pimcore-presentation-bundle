@@ -3,21 +3,14 @@
 namespace Neusta\Pimcore\PresentationBundle\Controller;
 
 use Pimcore\Controller\FrontendController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
 class SlideController extends FrontendController
 {
-    public function __construct()
+    public function slideAction(): Response
     {
-    }
-
-    /**
-     * @Template
-     */
-    public function slideAction(): array
-    {
-        return [
+        return $this->render('NeustaPimcorePresentationBundle:Slide:slide.html.twig', [
             // FIXME use slide renderer
-        ];
+        ]);
     }
 }
