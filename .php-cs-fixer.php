@@ -8,7 +8,7 @@ return (new PhpCsFixer\Config)
     ->setRiskyAllowed(true)
     ->setRules([
         // See: https://mlocati.github.io/php-cs-fixer-configurator
-        '@PHP74Migration' => true,
+        '@PHP81Migration' => true,
         '@Symfony' => true,
         '@Symfony:risky' => true,
         '@DoctrineAnnotation' => true,
