@@ -10,6 +10,9 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
-    Neusta\Pimcore\PresentationBundle\:
-        resource: '../..'
-        exclude: ['../../Tests']
+    Neusta\Pimcore\PresentationBundle\Renderer\SimplePresentationRenderer:
+        class: Neusta\Pimcore\PresentationBundle\Renderer\SimplePresentationRenderer
+    Neusta\Pimcore\PresentationBundle\Renderer\SimpleSlideRenderer:
+        class: Neusta\Pimcore\PresentationBundle\Renderer\SimpleSlideRenderer
+    Neusta\Pimcore\PresentationBundle\Twig\PresentationExtension:
+        class: Neusta\Pimcore\PresentationBundle\Twig\PresentationExtension
