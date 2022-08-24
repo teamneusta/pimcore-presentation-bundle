@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        bind:
+            $revealJsPublicPath: '/bundles/neustapimcorepresentation/reveal.js-master'
+
+    Neusta\Pimcore\PresentationBundle\Controller\:
+        resource: '../../Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+    Neusta\Pimcore\PresentationBundle\Renderer\SimplePresentationRenderer: ~
+    Neusta\Pimcore\PresentationBundle\Renderer\SimpleSlideRenderer: ~
+    Neusta\Pimcore\PresentationBundle\Twig\PresentationExtension: ~

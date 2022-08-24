@@ -2,11 +2,13 @@
 
 namespace Neusta\Pimcore\PresentationBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
+use Pimcore\Controller\FrontendController;
+use Symfony\Component\HttpFoundation\Response;
 
-class SnippetController extends AbstractFrontendController
+class SnippetController extends FrontendController
 {
-    public function footerAction(Request $request)
+    public function footerAction(): Response
     {
+        return $this->render('NeustaPimcorePresentationBundle:Snippet:footer.html.twig', []);
     }
 }

@@ -1,22 +1,12 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Neusta\Pimcore\PresentationBundle;
 
-use Neusta\Pimcore\NotificationBundle\Model\AbstractNotice;
 use Pimcore\Extension\Bundle\Installer\AbstractInstaller;
-use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\Document\DocType;
-use Pimcore\Model\Document\DocType\Dao;
-use Symfony\Component\Finder\Finder;
 
 class Installer extends AbstractInstaller
 {
-    /**
-     * @var Dao
-     */
-    private $documentTypesDao;
-
     public function install(): void
     {
         $this->installDocumentTypes();
@@ -37,21 +27,31 @@ class Installer extends AbstractInstaller
         return true;
     }
 
-    private function installDocumentTypes()
+    private function installDocumentTypes(): void
     {
-        /** @var DocType $model */
+        $typeDefinitionsFile =
+            __DIR__ . \DIRECTORY_SEPARATOR .
+            'Resources' . \DIRECTORY_SEPARATOR .
+            'config' . \DIRECTORY_SEPARATOR .
+            'document-types.php';
+        $typeDefinitions = include $typeDefinitionsFile;
+        foreach ($typeDefinitions as $typeDefinition) {
+            $this->installDocumentType($typeDefinition);
+        }
+    }
+
+    private function installDocumentType(array $typeDefinition): void
+    {
         $model = new DocType();
-        $model->setId(1000);
-        $model->setName('Slide');
-        $model->setGroup('presentation');
-        $model->setModule('PresentationBundle');
-        $model->setController('@AppBundle\\Controller\\DefaultController');
-        $model->setAction('default');
-        $model->setTemplate('PresentationBundle:Slides/Layouts/BE:slide.html.twig');
-        $model->setType('Page');
-        $model->setPriority(0);
-        $model->setCreationDate(time());
-        $model->setModificationDate(time());
+        $model->setId($typeDefinition['id']);
+        $model->setName($typeDefinition['name']);
+        $model->setGroup($typeDefinition['group']);
+        $model->setController($typeDefinition['controller']);
+        $model->setTemplate($typeDefinition['template']);
+        $model->setType($typeDefinition['type']);
+        $model->setPriority($typeDefinition['priority']);
+        $model->setCreationDate($typeDefinition['creationDate']);
+        $model->setModificationDate($typeDefinition['modificationDate']);
         $model->save();
     }
 }

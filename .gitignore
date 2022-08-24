@@ -8,3 +8,5 @@
 
 # PHPUnit
 .phpunit.result.cache
+
+/Resources/public/reveal.js-master/
