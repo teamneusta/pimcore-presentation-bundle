@@ -1,6 +1,6 @@
 # PresentationBundle
 
-This branch contains the current development efforts to port the PresentationBundle from pimcore `6.4` to pimcore `X`
+Allows to create online presentations using reveal-js
 
 ## Install current dev version
 
@@ -14,7 +14,7 @@ Edit `composer.json` and add under `repositories`:
 
 Run the following command to install
 ```
-bin/composer require neusta/pimcore-presentation-bundle:dev-upgrade-to-x
+bin/composer require neusta/pimcore-presentation-bundle:dev-master
 ```
 
 ## Install reveal.js
@@ -34,3 +34,8 @@ rm master.zip
 * automate reveal-js installation (npm? just include it and be done with it?)
 * presentation settings via editables instead of "hidden" document properties
 * FIXME: a pimcore image thumbnail config named 'dumb' is required
+
+
+## Attribution
+
+Icon by <a href="https://www.flaticon.com/free-icons/project" title="project icons">Project icons created by Freepik - Flaticon</a>
