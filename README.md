@@ -28,14 +28,6 @@ unzip master.zip
 rm master.zip
 ```
 
-## TODO
-
-* update pipelines to add bundle to composer repo, see e.g. testing-framework
-* automate reveal-js installation (npm? just include it and be done with it?)
-* presentation settings via editables instead of "hidden" document properties
-* FIXME: a pimcore image thumbnail config named 'dumb' is required
-
-
 ## Attribution
 
 Icon by <a href="https://www.flaticon.com/free-icons/project" title="project icons">Project icons created by Freepik - Flaticon</a>
