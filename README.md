@@ -2,19 +2,23 @@
 
 Allows to create online presentations using reveal-js
 
-## Install current dev version
+## Installation
 
-Edit `composer.json` and add under `repositories`:
-```
-"presentation-bundle": {
-    "type": "git",
-    "url": "git@gitlab.neusta.de:NSD/p_pimcore/bundles/presentationbundle.git"
+Edit your Projects `composer.json` and add the neusta pimcore repository under `repositories`:
+```json
+{
+    "repositories": {
+        "gitlab.neusta.de/NSD/p_pimcore": {
+            "type": "composer",
+            "url": "https://gitlab.neusta.de/api/v4/group/883/-/packages/composer/packages.json"
+        }
+    }
 }
 ```
 
-Run the following command to install
+Run `composer require` to install the bundle
 ```
-bin/composer require neusta/pimcore-presentation-bundle:dev-master
+composer require neusta/pimcore-presentation-bundle:^1.0@dev
 ```
 
 ## Install reveal.js
