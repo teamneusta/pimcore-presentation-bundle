@@ -56,3 +56,15 @@ package:composer:
     extends: .composer-package-on-tag
     needs:
         - test:phpunit
+
+package:composer-package-on-branch:
+  image: curlimages/curl:latest
+  rules:
+    - if: $CI_COMMIT_BRANCH
+  script:
+    - >-
+      curl
+      --header "Job-Token: ${CI_JOB_TOKEN}"
+      --data branch=${CI_COMMIT_REF_NAME}
+      "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/composer"
+
