@@ -1,7 +1,7 @@
 {
   "name": "neusta/pimcore-presentation-bundle",
   "type": "pimcore-bundle",
-  "description": "",
+  "description": "Allows to create online presentations in pimcore using reveal-js",
   "license": "GPL-3.0-or-later",
   "authors": [
     {
