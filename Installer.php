@@ -3,6 +3,7 @@
 namespace Neusta\Pimcore\PresentationBundle;
 
 use Pimcore\Extension\Bundle\Installer\AbstractInstaller;
+use Pimcore\Model\Asset\Image\Thumbnail;
 use Pimcore\Model\Document\DocType;
 
 class Installer extends AbstractInstaller
@@ -10,6 +11,7 @@ class Installer extends AbstractInstaller
     public function install(): void
     {
         $this->installDocumentTypes();
+        $this->installThumbnailConfiguration();
     }
 
     public function isInstalled(): bool
@@ -53,5 +55,16 @@ class Installer extends AbstractInstaller
         $model->setCreationDate($typeDefinition['creationDate']);
         $model->setModificationDate($typeDefinition['modificationDate']);
         $model->save();
+    }
+
+    private function installThumbnailConfiguration(): void
+    {
+        if (Thumbnail\Config::exists('pimcore-presentation-bundle-background-image')) {
+            return;
+        }
+
+        $thumbnailConfig = new Thumbnail\Config();
+        $thumbnailConfig->setName('pimcore-presentation-bundle-background-image');
+        $thumbnailConfig->save();
     }
 }

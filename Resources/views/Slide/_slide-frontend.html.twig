@@ -11,7 +11,7 @@
 {% set showSouthRight = pimcore_areablock("south-right-content").getCount() > 0 %}
 
 {% if not pimcore_image("background-image").isEmpty() %}
-    {% set backgroundImageProperty = ' data-background-image="' ~ pimcore_image("background-image").thumbnail('dumb') ~ '"' %}
+    {% set backgroundImageProperty = ' data-background-image="' ~ pimcore_image("background-image").thumbnail('pimcore-presentation-bundle-background-image') ~ '"' %}
 {% else %}
     {% set backgroundImageProperty = '' %}
 {% endif %}
