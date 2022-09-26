@@ -14,7 +14,7 @@ class PresentationController extends FrontendController
 
     public function presentationAction(): Response
     {
-        return $this->render('NeustaPimcorePresentationBundle:Presentation:presentation.html.twig', [
+        return $this->render('@NeustaPimcorePresentation/Presentation/presentation.html.twig', [
             'slidesMarkup' => $this->presentationRenderer->renderPresentation($this->document),
         ]);
     }

@@ -9,7 +9,7 @@ class SlideController extends FrontendController
 {
     public function slideAction(): Response
     {
-        return $this->render('NeustaPimcorePresentationBundle:Slide:slide.html.twig', [
+        return $this->render('@NeustaPimcorePresentation/Slide/slide.html.twig', [
             // FIXME use slide renderer
         ]);
     }
