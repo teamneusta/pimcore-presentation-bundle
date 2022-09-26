@@ -9,6 +9,6 @@ class SnippetController extends FrontendController
 {
     public function footerAction(): Response
     {
-        return $this->render('NeustaPimcorePresentationBundle:Snippet:footer.html.twig', []);
+        return $this->render('@NeustaPimcorePresentation/Snippet/footer.html.twig', []);
     }
 }
