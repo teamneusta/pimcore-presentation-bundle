@@ -10,6 +10,15 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder('neusta_pimcore_presentation');
+
+        $treeBuilder->getRootNode()
+            ->children()
+                ->booleanNode('bricks')
+                    ->defaultTrue()
+                ->end()
+            ->end()
+        ;
+
         return $treeBuilder;
     }
 }

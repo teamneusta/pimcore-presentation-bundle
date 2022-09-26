@@ -1,6 +1,6 @@
 <?php
 
-namespace Neusta\Pimcore\PresentationBundle\Document\Areabrick;
+namespace Neusta\Pimcore\PresentationBundle\DocumentAreabrick;
 
 use Pimcore\Extension\Document\Areabrick\AbstractTemplateAreabrick;
 
