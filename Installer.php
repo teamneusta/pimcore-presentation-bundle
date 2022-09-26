@@ -11,7 +11,7 @@ class Installer extends AbstractInstaller
     public function install(): void
     {
         $this->installDocumentTypes();
-        $this->installDumbThumbnailConfig();
+        $this->installThumbnailConfiguration();
     }
 
     public function isInstalled(): bool
@@ -57,7 +57,7 @@ class Installer extends AbstractInstaller
         $model->save();
     }
 
-    private function installDumbThumbnailConfig(): void
+    private function installThumbnailConfiguration(): void
     {
         if (Thumbnail\Config::exists('pimcore-presentation-bundle-background-image')) {
             return;
