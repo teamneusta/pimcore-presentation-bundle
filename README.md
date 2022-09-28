@@ -4,9 +4,8 @@ Allows to create online presentations using reveal-js
 
 ## Installation
 
-1. Make sure you can install _neusta Pimcore Bundles_. Read this to learn how to [Require Neusta Pimcore Bundle](https://portal.neusta.de/confluence/display/NSDPIMCORE/Require+Neusta+Pimcore+Bundle).
-2. Run `composer require neusta/pimcore-presentation-bundle:^1.0@dev` to install the bundle
-3. Enable and _install_ the pimcore bundle to get Document and other Templates \
+1. Run `composer require teamneusta/pimcore-presentation-bundle` to install the bundle
+2. Enable and _install_ the pimcore bundle to get Document and other Templates \
 `bin/console pimcore:bundle:enable NeustaPimcorePresentationBundle` \
 `bin/console pimcore:bundle:install NeustaPimcorePresentationBundle`
 
