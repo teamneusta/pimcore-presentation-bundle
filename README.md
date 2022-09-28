@@ -1,6 +1,6 @@
 # PresentationBundle
 
-Allows to create online presentations using reveal-js
+Allows to create online presentations in Pimcore using reveal-js
 
 ## Installation
 
