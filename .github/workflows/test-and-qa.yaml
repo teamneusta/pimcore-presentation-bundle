@@ -1,4 +1,4 @@
-name: php81-test-and-qa
+name: test-and-qa
 
 on:
     push:
