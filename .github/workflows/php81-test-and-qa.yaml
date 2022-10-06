@@ -36,12 +36,11 @@ jobs:
             - name: Install Dependencies
               run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
+            - name: Check CS-Fixer
+              run: composer cs:check
+
+            - name: Check PHPStan
+              run: composer phpstan
+
             - name: Execute tests (Unit and Feature tests) via PHPUnit
-              run: vendor/bin/phpunit
-
-        #- name: Check CS-Fixer
-        #  run: bin/composer fix-cs:check
-
-
-        #- name: Check PHPStan
-        #  run: bin/composer phpstan-gitlab
+              run: composer tests
