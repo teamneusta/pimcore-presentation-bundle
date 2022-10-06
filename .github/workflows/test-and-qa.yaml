@@ -41,6 +41,7 @@ jobs:
 
             - name: Check PHPStan
               run: composer phpstan
+              continue-on-error: true
 
             - name: Execute tests (Unit and Feature tests) via PHPUnit
               run: composer tests
