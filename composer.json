@@ -55,6 +55,7 @@
     "cs:check": "php-cs-fixer fix -v --diff --dry-run",
     "cs:fix": "php-cs-fixer fix -v --diff",
     "phpstan": "phpstan analyse --level=${PHPSTAN_LEVEL:-8} -c phpstan.neon",
+    "phpstan:baseline": "phpstan analyse --level=${PHPSTAN_LEVEL:-8} -c phpstan.neon --generate-baseline",
     "tests": "phpunit"
   },
   "scripts-descriptions": {
