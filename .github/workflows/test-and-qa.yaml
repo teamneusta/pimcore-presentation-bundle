@@ -10,7 +10,7 @@ permissions:
     contents: read
 
 jobs:
-    symfony-tests:
+    TestAndQaJobs:
         runs-on: ubuntu-latest
         steps:
             - uses: shivammathur/setup-php@v2
