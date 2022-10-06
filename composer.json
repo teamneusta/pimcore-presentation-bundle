@@ -24,12 +24,18 @@
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^3.11",
     "phpspec/prophecy-phpunit": "^2.0",
-    "phpunit/phpunit": "^9.3",
-    "phpstan/phpstan": "^1.8"
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan": "^1.8",
+    "phpstan/phpstan-phpunit": "^1.1",
+    "phpstan/phpstan-symfony": "^1.2",
+    "phpunit/phpunit": "^9.3"
   },
   "config": {
     "preferred-install": "dist",
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "phpstan/extension-installer": true
+    }
   },
   "extra": {
     "pimcore": {
