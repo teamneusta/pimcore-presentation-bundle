@@ -22,9 +22,10 @@
     "symfony/http-kernel": "^5.3"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.12",
+    "friendsofphp/php-cs-fixer": "^3.11",
     "phpspec/prophecy-phpunit": "^2.0",
-    "phpunit/phpunit": "^9.3"
+    "phpunit/phpunit": "^9.3",
+    "phpstan/phpstan": "^1.8"
   },
   "config": {
     "preferred-install": "dist",
@@ -51,11 +52,15 @@
     }
   },
   "scripts": {
-    "cs": "php-cs-fixer fix -v --diff --dry-run",
-    "cs-fix": "php-cs-fixer fix -v --diff"
+    "cs:check": "php-cs-fixer fix -v --diff --dry-run",
+    "cs:fix": "php-cs-fixer fix -v --diff",
+    "phpstan": "phpstan analyse --level=${PHPSTAN_LEVEL:-8} -c phpstan.neon",
+    "tests": "phpunit"
   },
   "scripts-descriptions": {
-    "cs": "Checks code style (but doesn't fix anything)",
-    "cs-fix": "Fixes code style"
+    "cs:check": "Checks code style (but doesn't fix anything)",
+    "cs:fix": "Checks and fixes code style",
+    "phpstan": "Checks code against phpstan rules",
+    "tests": "runs all the phpunit tests"
   }
 }

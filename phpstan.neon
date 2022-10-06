@@ -1,0 +1,14 @@
+parameters:
+    paths:
+        - .
+
+    excludePaths:
+        - vendor
+
+    ignoreErrors:
+        - '#Test::provide[a-zA-Z0-9_]+\(\) return type has no value type specified in iterable type#'
+
+    bootstrapFiles:
+        - vendor/pimcore/pimcore/stubs/dynamic-constants.php
+
+    checkGenericClassInNonGenericObjectType: false
