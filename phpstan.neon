@@ -4,9 +4,7 @@ parameters:
 
     excludePaths:
         - vendor
-
-    ignoreErrors:
-        - '#Test::provide[a-zA-Z0-9_]+\(\) return type has no value type specified in iterable type#'
+        - Tests
 
     bootstrapFiles:
         - vendor/pimcore/pimcore/stubs/dynamic-constants.php
