@@ -42,6 +42,19 @@ class Installer extends AbstractInstaller
         }
     }
 
+    /**
+     * @param array{
+     *     'id':string,
+     *     'name':string,
+     *     'group':string,
+     *     'controller':string,
+     *     'template':string,
+     *     'type':string,
+     *     'priority':int,
+     *     'creationDate':int,
+     *     'modificationDate':int
+     * } $typeDefinition
+     */
     private function installDocumentType(array $typeDefinition): void
     {
         $model = new DocType();
