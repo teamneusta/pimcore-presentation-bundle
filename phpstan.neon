@@ -7,7 +7,6 @@ parameters:
 
     excludePaths:
         - vendor
-        - Tests
 
     bootstrapFiles:
         - vendor/pimcore/pimcore/stubs/dynamic-constants.php
