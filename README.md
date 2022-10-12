@@ -1,6 +1,8 @@
-# PresentationBundle
+# Pimcore Presentation Bundle
 
 ![CI](https://github.com/teamneusta/pimcore-presentation-bundle/actions/workflows/php81-test-and-qa.yaml/badge.svg)
+![Software License](https://img.shields.io/badge/license-GPLv3-informational.svg)
+![Pimcore Version](https://shields.io/static/v1?label=Pimcore%20Version&message=10.5&color=informational)
 
 Allows to create online presentations in Pimcore using reveal-js
 
