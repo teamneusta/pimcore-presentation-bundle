@@ -1,15 +1,24 @@
 # PresentationBundle
 
+![CI](https://github.com/teamneusta/pimcore-presentation-bundle/actions/workflows/php81-test-and-qa.yaml/badge.svg)
+
 Allows to create online presentations in Pimcore using reveal-js
 
 ## Installation
 
-1. Run `composer require teamneusta/pimcore-presentation-bundle` to install the bundle
-2. Enable and _install_ the pimcore bundle to get Document and other Templates \
-`bin/console pimcore:bundle:enable NeustaPimcorePresentationBundle` \
-`bin/console pimcore:bundle:install NeustaPimcorePresentationBundle`
+Require via Composer
 
-## Install reveal.js
+```shell
+composer require teamneusta/pimcore-presentation-bundle
+```
+
+As this is a Pimcore bundle, enable and install it
+```shell
+console pimcore:bundle:enable NeustaPimcorePresentationBundle
+console pimcore:bundle:install NeustaPimcorePresentationBundle
+```
+
+### Install reveal.js
 
 After the Bundle is installed it is required to manually install reveal-js
 
@@ -20,15 +29,21 @@ unzip master.zip
 rm master.zip
 ```
 
+## Usage
+
+Create new Pimcore document pages via the document types that are offered by this bundle.
+
 ## Configuration
 
-The Bundle provides a handful of _simple_ Areabricks to create Presentations. When the Bundle is used alongside other Bundles it might lead to Areabrick name collisions or one is just not interested in using the _default_ Bricks. It is possible to disable the included Areabricks using the following configuration
+The bundle provides a handful of _simple_ Areabricks to create Presentations. When the bundle is used alongside other bundles it might lead to Areabrick name collisions or one is just not interested in using the _default_ Bricks. It is possible to disable the included Areabricks using the following configuration
 
 ```yaml
 neusta_pimcore_presentation:
     bricks: false
 ```
 
-## Attribution
+## Contribution
 
-Icon by <a href="https://www.flaticon.com/free-icons/project" title="project icons">Project icons created by Freepik - Flaticon</a>
+Feel free to open issues for any bug, feature request or other ideas. There is no issue template at the moment.
+
+Please mention to write an issue, before create large pull requests.
