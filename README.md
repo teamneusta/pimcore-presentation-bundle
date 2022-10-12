@@ -35,11 +35,11 @@ rm master.zip
 
 ## Usage
 
-Create new Pimcore document pages via the document types that are offered by this bundle.
+Create new Pimcore document pages using the document types offered by this bundle.
 
 ## Configuration
 
-The bundle provides a handful of _simple_ Areabricks to create Presentations. When the bundle is used alongside other bundles it might lead to Areabrick name collisions or one is just not interested in using the _default_ Bricks. It is possible to disable the included Areabricks using the following configuration
+The bundle provides a handful of _simple_ areabricks for creating presentations. When the bundle is used together with other bundles, there may be collisions of areabrick names or you may simply not be interested in using the _default_ bricks. It is possible to disable the included areabricks with the following configuration
 
 ```yaml
 neusta_pimcore_presentation:
@@ -48,6 +48,6 @@ neusta_pimcore_presentation:
 
 ## Contribution
 
-Feel free to open issues for any bug, feature request or other ideas. There is no issue template at the moment.
+Feel free to open issues for any bug, feature request, or other ideas.
 
-Please mention to write an issue, before create large pull requests.
+Please remember to create an issue before creating large pull requests.
