@@ -64,8 +64,8 @@ class SimplePresentationRendererTest extends TestCase
         $presentationRenderer->renderPresentation($presentation->reveal());
     }
 
-    private function createSlideMock(): ObjectProphecy|PageSnippet
+    private function createSlideMock(): PageSnippet
     {
-        return $this->prophesize(PageSnippet::class);
+        return $this->prophesize(PageSnippet::class)->reveal();
     }
 }
