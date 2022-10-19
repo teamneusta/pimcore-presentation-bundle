@@ -1,0 +1,14 @@
+includes:
+    - phpstan-baseline.neon
+
+parameters:
+    paths:
+        - .
+
+    excludePaths:
+        - vendor
+
+    bootstrapFiles:
+        - vendor/pimcore/pimcore/stubs/dynamic-constants.php
+
+    checkGenericClassInNonGenericObjectType: false

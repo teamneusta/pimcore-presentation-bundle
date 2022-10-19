@@ -2,7 +2,7 @@
 
 namespace Neusta\Pimcore\PresentationBundle\Renderer;
 
-use Pimcore\Model\Document\PageSnippet;
+use Pimcore\Model\Document;
 use Twig\Environment;
 
 class SimpleSlideRenderer implements SlideRenderer
@@ -11,17 +11,17 @@ class SimpleSlideRenderer implements SlideRenderer
     {
     }
 
-    public function renderSlide(PageSnippet $slide): string
+    public function renderSlide(Document $slide): string
     {
         $slideMarkup = $this->renderDocument($slide);
-        foreach ($slide->getChildren() ?? [] as $subSlide) {
+        foreach ($slide->getChildren() as $subSlide) {
             $slideMarkup .= $this->renderSlide($subSlide);
         }
 
         return $slideMarkup;
     }
 
-    private function renderDocument(PageSnippet $page): string
+    private function renderDocument(Document $page): string
     {
         $template = '@NeustaPimcorePresentation/Slide/partial.html.twig';
 

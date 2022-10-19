@@ -1,4 +1,4 @@
-name: php81-test-and-qa
+name: test-and-qa
 
 on:
     push:
@@ -10,7 +10,7 @@ permissions:
     contents: read
 
 jobs:
-    symfony-tests:
+    TestAndQaJobs:
         runs-on: ubuntu-latest
         steps:
             - uses: shivammathur/setup-php@v2
@@ -36,12 +36,11 @@ jobs:
             - name: Install Dependencies
               run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
+            - name: Check CS-Fixer
+              run: composer cs:check
+
+            - name: Check PHPStan
+              run: composer phpstan
+
             - name: Execute tests (Unit and Feature tests) via PHPUnit
-              run: vendor/bin/phpunit
-
-        #- name: Check CS-Fixer
-        #  run: bin/composer fix-cs:check
-
-
-        #- name: Check PHPStan
-        #  run: bin/composer phpstan-gitlab
+              run: composer tests

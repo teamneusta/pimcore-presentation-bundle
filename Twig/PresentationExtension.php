@@ -25,6 +25,9 @@ class PresentationExtension extends AbstractExtension
         ];
     }
 
+    /**
+     * @param array<mixed> $context
+     */
     public function getThemeFile(array $context): string
     {
         /** @var Document\PageSnippet $document */
