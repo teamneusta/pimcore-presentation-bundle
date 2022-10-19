@@ -1,6 +1,6 @@
 # Pimcore Presentation Bundle
 
-![CI](https://github.com/teamneusta/pimcore-presentation-bundle/actions/workflows/php81-test-and-qa.yaml/badge.svg)
+![CI](https://github.com/teamneusta/pimcore-presentation-bundle/actions/workflows/test-and-qa.yaml/badge.svg)
 
 ![Software License](https://img.shields.io/badge/license-GPLv3-informational.svg)
 ![Required Pimcore Version](https://shields.io/static/v1?label=Required%20Pimcore%20Version&message=10.0&color=informational)
