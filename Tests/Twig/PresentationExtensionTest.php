@@ -6,7 +6,6 @@ use Neusta\Pimcore\PresentationBundle\Twig\PresentationExtension;
 use PHPUnit\Framework\TestCase;
 use Pimcore\Model\Document;
 use Prophecy\PhpUnit\ProphecyTrait;
-use Prophecy\Prophecy\ObjectProphecy;
 use Twig\Environment;
 
 class PresentationExtensionTest extends TestCase
