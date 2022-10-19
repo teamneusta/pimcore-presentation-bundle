@@ -31,10 +31,10 @@ class PresentationExtensionTest extends TestCase
         $presentationExtension = $this->createPresentationExtension();
 
         $themeEditable = $this->createEditableMock('file name of the expected theme');
-        $document = $this->createDocumentWithEditableMock($themeEditable->reveal());
+        $document = $this->createDocumentWithEditableMock($themeEditable);
 
         $context = [
-            'document' => $document->reveal(),
+            'document' => $document,
         ];
         self::assertSame('file name of the expected theme', $presentationExtension->getThemeFile($context));
     }
@@ -47,19 +47,16 @@ class PresentationExtensionTest extends TestCase
         $presentationExtension = $this->createPresentationExtension();
 
         $themeEditable = $this->createEditableMock('theme filename of parent document');
-        $parentDocument = $this->createDocumentWithEditableMock($themeEditable->reveal());
-        $document = $this->createDocumentWithEditableMock(null);
-        $document
-            ->getParent()
-            ->willReturn($parentDocument->reveal());
+        $parentDocument = $this->createDocumentWithEditableMock($themeEditable);
+        $document = $this->createDocumentWithEditableMock(null, $parentDocument);
 
         $context = [
-            'document' => $document->reveal(),
+            'document' => $document,
         ];
         self::assertSame('theme filename of parent document', $presentationExtension->getThemeFile($context));
     }
 
-    private function createDocumentWithEditableMock(?Document\Editable $themeEditable): Document\PageSnippet|ObjectProphecy
+    private function createDocumentWithEditableMock(?Document\Editable $themeEditable, ?Document\PageSnippet $parent = null): Document\PageSnippet
     {
         $document = $this->prophesize(Document\PageSnippet::class);
         $document
@@ -69,17 +66,23 @@ class PresentationExtensionTest extends TestCase
             ->getEditable('theme')
             ->willReturn($themeEditable);
 
-        return $document;
+        if (null !== $parent) {
+            $document
+                ->getParent()
+                ->willReturn($parent);
+        }
+
+        return $document->reveal();
     }
 
-    private function createEditableMock(string $value): ObjectProphecy|Document\Editable
+    private function createEditableMock(string $value): Document\Editable
     {
         $themeEditable = $this->prophesize(Document\Editable::class);
         $themeEditable
             ->getValue()
             ->willReturn($value);
 
-        return $themeEditable;
+        return $themeEditable->reveal();
     }
 
     private function createPresentationExtension(): PresentationExtension
