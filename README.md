@@ -51,3 +51,10 @@ neusta_pimcore_presentation:
 Feel free to open issues for any bug, feature request, or other ideas.
 
 Please remember to create an issue before creating large pull requests.
+
+### Running tests for development
+
+```shell
+docker run -it --rm -v $(pwd):/app -w /app pimcore/pimcore:PHP8.1-fpm composer install --ignore-platform-reqs
+docker run -it --rm -v $(pwd):/app -w /app pimcore/pimcore:PHP8.1-fpm composer test
+```
