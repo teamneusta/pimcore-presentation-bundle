@@ -55,6 +55,6 @@ Please remember to create an issue before creating large pull requests.
 ### Running tests for development
 
 ```shell
-docker run -it --rm -v $(pwd):/app -w /app pimcore/pimcore:PHP8.1-fpm composer install --ignore-platform-reqs
-docker run -it --rm -v $(pwd):/app -w /app pimcore/pimcore:PHP8.1-fpm composer test
+docker run -it --rm -v $(pwd):/app -w /app pimcore/pimcore:PHP8.1-cli composer install --ignore-platform-reqs
+docker run -it --rm -v $(pwd):/app -w /app pimcore/pimcore:PHP8.1-cli composer test
 ```
