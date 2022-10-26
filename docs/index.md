@@ -11,7 +11,7 @@ The Bundle provides two additional Document Types to ease the creation of new Pr
 
 1. Create a new Document of type "Presentation" anywhere in your Document-Tree \
 ![](01-create-presentation.png)
-2. Create a child Documents of your Presentation using the type "Slide" \
+2. Create a child Document of your Presentation using the type "Slide" \
 ![](02-create-slide.png)
 3. Add Content to your Slide using the provided AreaBlocks or your own
 4. Create more Slides
