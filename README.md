@@ -6,7 +6,7 @@
 ![Required Pimcore Version](https://shields.io/static/v1?label=Required%20Pimcore%20Version&message=10.0&color=informational)
 ![Supported Pimcore Version](https://shields.io/static/v1?label=Supported%20Pimcore%20Version&message=10.5&color=informational)
 
-Allows to create online presentations in Pimcore using reveal-js
+Allows to create online presentations in Pimcore using [reveal-js](https://revealjs.com/).
 
 ## Installation
 
@@ -27,7 +27,7 @@ console pimcore:bundle:install NeustaPimcorePresentationBundle
 After the Bundle is installed it is required to manually install reveal-js
 
 ```shell
-cd vendor/neusta/pimcore-presentation-bundle/Resources/public
+cd vendor/teamneusta/pimcore-presentation-bundle/Resources/public
 curl -OL https://github.com/hakimel/reveal.js/archive/master.zip
 unzip master.zip
 rm master.zip
@@ -35,7 +35,7 @@ rm master.zip
 
 ## Usage
 
-Create new Pimcore document pages using the document types offered by this bundle.
+Create new Pimcore document pages using the Document Types offered by this bundle. [See documentation for more details](docs/index.md)
 
 ## Configuration
 
