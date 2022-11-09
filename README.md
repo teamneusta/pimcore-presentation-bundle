@@ -6,7 +6,7 @@
 ![Required Pimcore Version](https://shields.io/static/v1?label=Required%20Pimcore%20Version&message=10.0&color=informational)
 ![Supported Pimcore Version](https://shields.io/static/v1?label=Supported%20Pimcore%20Version&message=10.5&color=informational)
 
-Allows to create online presentations in Pimcore using [reveal-js](https://revealjs.com/)
+Allows to create online presentations in Pimcore using [reveal-js](https://revealjs.com/).
 
 ## Installation
 
@@ -35,7 +35,7 @@ rm master.zip
 
 ## Usage
 
-Create new Pimcore document pages using the document types offered by this bundle. [See Documentation for more details](docs/index.md)
+Create new Pimcore document pages using the Document Types offered by this bundle. [See documentation for more details](docs/index.md)
 
 ## Configuration
 

@@ -1,21 +1,21 @@
 # Pimcore Presentation Bundle
 
-The Bundle provides two additional Document Types to ease the creation of new Presentations:
+The bundle provides two additional Document Types to ease the creation of new presentations:
 
 1. Presentation \
-   The Presentation itself, a container for your Slides
+   The presentation itself, a container for your slides
 2. Slide \
-   A Slide contains your custom content 
+   A slide contains your custom content 
  
 ## Create a Presentation
 
-1. Create a new Document of type "Presentation" anywhere in your Document-Tree \
+1. Create a new document of type "Presentation" anywhere in your document tree \
 ![](01-create-presentation.png)
-2. Create a child Document of your Presentation using the type "Slide" \
+2. Create a child document of your presentation using the type "Slide" \
 ![](02-create-slide.png)
-3. Add Content to your Slide using the provided AreaBlocks or your own
+3. Add content to your slide using one of the provided areablocks or create your own areablocks
 4. Create more Slides
 
-Slides in a Presentation can be navigated horizontaly. Each Slide can have child Slides which enable a vertical navigation (https://revealjs.com/vertical-slides/).
+Slides in a presentation can be navigated horizontaly. Each slide can have child slides which enable a vertical navigation (https://revealjs.com/vertical-slides/).
 
-Once saved and published you can view and navigate your Presentation. 
+Once saved and published you can view and navigate your presentation. 
