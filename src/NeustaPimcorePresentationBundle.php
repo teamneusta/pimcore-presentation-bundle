@@ -9,6 +9,11 @@ class NeustaPimcorePresentationBundle extends AbstractPimcoreBundle
 {
     use PackageVersionTrait;
 
+    public function getPath(): string
+    {
+        return \dirname(__DIR__);
+    }
+
     public function getNiceName()
     {
         return 'Neusta Presentation Bundle';

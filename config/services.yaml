@@ -6,7 +6,7 @@ services:
             $revealJsPublicPath: '/bundles/neustapimcorepresentation/reveal.js-master'
 
     Neusta\Pimcore\PresentationBundle\Controller\:
-        resource: '../../Controller'
+        resource: '../src/Controller'
         public: true
         tags: ['controller.service_arguments']
 

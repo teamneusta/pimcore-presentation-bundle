@@ -9,13 +9,8 @@
         failOnWarning="true">
   <coverage>
     <include>
-      <directory>./</directory>
+      <directory>./src</directory>
     </include>
-    <exclude>
-      <directory>./Resources</directory>
-      <directory>./Tests</directory>
-      <directory>./vendor</directory>
-    </exclude>
   </coverage>
 
   <php>
@@ -37,7 +32,7 @@
 
   <testsuites>
     <testsuite name="unit-tests">
-      <directory>./Tests/</directory>
+      <directory>./tests/</directory>
     </testsuite>
   </testsuites>
 </phpunit>

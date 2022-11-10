@@ -4,9 +4,10 @@
 .idea/
 
 # PHP-CS-Fixer
-.php_cs.cache
+.php-cs-fixer.cache
 
 # PHPUnit
 .phpunit.result.cache
 
+# Reveal JS
 /Resources/public/reveal.js-master/
