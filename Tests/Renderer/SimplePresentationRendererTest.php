@@ -16,6 +16,7 @@ class SimplePresentationRendererTest extends TestCase
 
     private SimplePresentationRenderer $presentationRenderer;
 
+    /** @var ObjectProphecy<SlideRenderer> */
     private ObjectProphecy|SlideRenderer $slideRenderer;
 
     protected function setUp(): void
