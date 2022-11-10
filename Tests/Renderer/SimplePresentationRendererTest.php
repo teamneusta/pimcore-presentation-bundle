@@ -8,10 +8,22 @@ use PHPUnit\Framework\TestCase;
 use Pimcore\Model\Document\PageSnippet;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
+use Prophecy\Prophecy\ObjectProphecy;
 
 class SimplePresentationRendererTest extends TestCase
 {
     use ProphecyTrait;
+
+    private SimplePresentationRenderer $presentationRenderer;
+
+    private ObjectProphecy|SlideRenderer $slideRenderer;
+
+    protected function setUp(): void
+    {
+        $this->slideRenderer = $this->prophesize(SlideRenderer::class);
+
+        $this->presentationRenderer = new SimplePresentationRenderer($this->slideRenderer->reveal());
+    }
 
     /**
      * @test
@@ -23,14 +35,12 @@ class SimplePresentationRendererTest extends TestCase
             ->getChildren()
             ->willReturn([]);
 
-        $slideRenderer = $this->prophesize(SlideRenderer::class);
-        $slideRenderer
-            ->renderSlide(Argument::any())
-            ->shouldNotBeCalled();
+        $renderedPresentation = $this->presentationRenderer->renderPresentation($presentation->reveal());
 
-        $presentationRenderer = new SimplePresentationRenderer($slideRenderer->reveal());
-        $renderedPresentation = $presentationRenderer->renderPresentation($presentation->reveal());
         self::assertEmpty($renderedPresentation);
+        $this->slideRenderer
+            ->renderSlide(Argument::any())
+            ->shouldNotHaveBeenCalled();
     }
 
     /**
@@ -49,18 +59,22 @@ class SimplePresentationRendererTest extends TestCase
                 $slide2,
             ]);
 
-        $slideRenderer = $this->prophesize(SlideRenderer::class);
-        $slideRenderer
+        $this->slideRenderer
             ->renderSlide($slide1)
-            ->willReturn('slide-1-content')
-            ->shouldBeCalledOnce();
-        $slideRenderer
+            ->willReturn('slide-1-content');
+        $this->slideRenderer
             ->renderSlide($slide2)
-            ->willReturn('slide-2-content')
-            ->shouldBeCalledOnce();
+            ->willReturn('slide-2-content');
 
-        $presentationRenderer = new SimplePresentationRenderer($slideRenderer->reveal());
-        $presentationRenderer->renderPresentation($presentation->reveal());
+        // act
+        $this->presentationRenderer->renderPresentation($presentation->reveal());
+
+        $this->slideRenderer
+            ->renderSlide($slide1)
+            ->shouldHaveBeenCalledOnce();
+        $this->slideRenderer
+            ->renderSlide($slide2)
+            ->shouldHaveBeenCalledOnce();
     }
 
     private function createSlideMock(): PageSnippet
