@@ -33,6 +33,6 @@ class NeustaPimcorePresentationBundle extends AbstractPimcoreBundle
 
     protected function getComposerPackageName(): string
     {
-        return 'neusta/pimcore-presentation-bundle';
+        return 'teamneusta/pimcore-presentation-bundle';
     }
 }
