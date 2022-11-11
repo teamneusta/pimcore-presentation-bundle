@@ -16,22 +16,11 @@
   <php>
     <ini name="error_reporting" value="-1"/>
     <ini name="memory_limit" value="-1" />
+    <server name="KERNEL_CLASS" value="Neusta\Pimcore\PresentationBundle\Tests\TestKernel"/>
   </php>
 
-  <!--<php>-->
-  <!--    <ini name="error_reporting" value="-1" />-->
-  <!--    <ini name="memory_limit" value="-1" />-->
-  <!--    <env name="PIMCORE_PROJECT_ROOT" value="/var/www/pimcore/" />-->
-  <!--    <env name="B04_TEST_DATA_PATH" value="/var/www/pimcore/tests/_data/" />-->
-  <!--    <env name="APP_ENV" value="test" />-->
-  <!--    <env name="PIMCORE_ENVIRONMENT" value="test" />-->
-  <!--    <env name="DB_HOST" value="mysql" />-->
-  <!--    <server name="KERNEL_CLASS" value="AppKernel" />-->
-  <!--    <server name="KERNEL_DIR" value="app" />-->
-  <!--</php>-->
-
   <testsuites>
-    <testsuite name="unit-tests">
+    <testsuite name="tests">
       <directory>./tests/</directory>
     </testsuite>
   </testsuites>
