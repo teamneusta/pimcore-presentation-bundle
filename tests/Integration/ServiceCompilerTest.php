@@ -2,14 +2,14 @@
 
 namespace Neusta\Pimcore\PresentationBundle\Tests\Integration;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Pimcore\Test\KernelTestCase;
 
 class ServiceCompilerTest extends KernelTestCase
 {
-    protected function setUp(): void
-    {
-        self::bootKernel(['environment' => 'test']);
-    }
+//    protected function setUp(): void
+//    {
+//        self::bootKernel(['environment' => 'test']);
+//    }
 
     /** @test */
     public function symfonyServiceDefinitionsMustCompile(): void

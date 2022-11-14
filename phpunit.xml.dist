@@ -4,7 +4,7 @@
         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
         backupGlobals="false"
         colors="true"
-        bootstrap="vendor/autoload.php"
+        bootstrap="tests/bootstrap.php"
         failOnRisky="true"
         failOnWarning="true">
   <coverage>
@@ -16,7 +16,6 @@
   <php>
     <ini name="error_reporting" value="-1"/>
     <ini name="memory_limit" value="-1" />
-    <server name="KERNEL_CLASS" value="Neusta\Pimcore\PresentationBundle\Tests\TestKernel"/>
   </php>
 
   <testsuites>
