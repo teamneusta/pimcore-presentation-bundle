@@ -27,7 +27,7 @@ console pimcore:bundle:install NeustaPimcorePresentationBundle
 After the Bundle is installed it is required to manually install reveal-js
 
 ```shell
-cd vendor/teamneusta/pimcore-presentation-bundle/Resources/public
+cd vendor/teamneusta/pimcore-presentation-bundle/public
 curl -OL https://github.com/hakimel/reveal.js/archive/master.zip
 unzip master.zip
 rm master.zip

@@ -10,4 +10,4 @@
 .phpunit.result.cache
 
 # Reveal JS
-/Resources/public/reveal.js-master/
+/public/reveal.js-master/
