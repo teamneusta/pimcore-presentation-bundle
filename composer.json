@@ -47,15 +47,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Neusta\\Pimcore\\PresentationBundle\\": ""
-    },
-    "exclude-from-classmap": [
-      "/Tests/"
-    ]
+      "Neusta\\Pimcore\\PresentationBundle\\": "src/"
+    }
   },
   "autoload-dev": {
     "psr-4": {
-      "Neusta\\Pimcore\\PresentationBundle\\Tests\\": "Tests/"
+      "Neusta\\Pimcore\\PresentationBundle\\Tests\\": "tests/"
     }
   },
   "scripts": {

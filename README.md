@@ -27,7 +27,7 @@ console pimcore:bundle:install NeustaPimcorePresentationBundle
 After the Bundle is installed it is required to manually install reveal-js
 
 ```shell
-cd vendor/teamneusta/pimcore-presentation-bundle/Resources/public
+cd vendor/teamneusta/pimcore-presentation-bundle/public
 curl -OL https://github.com/hakimel/reveal.js/archive/master.zip
 unzip master.zip
 rm master.zip
@@ -57,4 +57,15 @@ Please remember to create an issue before creating large pull requests.
 ```shell
 docker run -it --rm -v $(pwd):/app -w /app pimcore/pimcore:PHP8.1-cli composer install --ignore-platform-reqs
 docker run -it --rm -v $(pwd):/app -w /app pimcore/pimcore:PHP8.1-cli composer test
+```
+
+### Further development
+
+Pipelines will tell you, when code does not meet our standards. To use the same tools in local development, take the Docker command from above with other scripts from the `composer.json`. For example:
+
+* cs:check
+* phpstan
+
+```shell
+docker run -it --rm -v $(pwd):/app -w /app pimcore/pimcore:PHP8.1-cli composer <composer-script>
 ```

@@ -3,10 +3,7 @@ includes:
 
 parameters:
     paths:
-        - .
-
-    excludePaths:
-        - vendor
+        - src
 
     bootstrapFiles:
         - vendor/pimcore/pimcore/stubs/dynamic-constants.php
