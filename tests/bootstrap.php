@@ -2,20 +2,13 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$pimcoreProjectRootDir = __DIR__ . '/app';
-$_SERVER['PIMCORE_PROJECT_ROOT'] = $pimcoreProjectRootDir;
-$_ENV['PIMCORE_PROJECT_ROOT'] = $pimcoreProjectRootDir;
-putenv('PIMCORE_PROJECT_ROOT=' . $pimcoreProjectRootDir);
+$setEnv = function (string $name, string $value): void {
+    putenv("{$name}=".$_ENV[$name] = $_SERVER[$name] = $value);
+};
 
-$kernelClass = 'TestKernel';
-$_SERVER['KERNEL_CLASS'] = $kernelClass;
-$_ENV['KERNEL_CLASS'] = $kernelClass;
-putenv('KERNEL_CLASS=' . $kernelClass);
-
-$appEnv = 'test';
-$_SERVER['APP_ENV'] = $appEnv;
-$_ENV['APP_ENV'] = $appEnv;
-putenv('APP_ENV=' . $appEnv);
+$setEnv('PIMCORE_PROJECT_ROOT', __DIR__ . '/app');
+$setEnv('KERNEL_CLASS', 'TestKernel');
+$setEnv('APP_ENV', 'test');
 
 \Pimcore\Bootstrap::setProjectRoot();
 \Pimcore\Bootstrap::bootstrap();
