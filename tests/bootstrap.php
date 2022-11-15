@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $setEnv = function (string $name, string $value): void {
-    putenv("{$name}=".$_ENV[$name] = $_SERVER[$name] = $value);
+    putenv("{$name}=" . $_ENV[$name] = $_SERVER[$name] = $value);
 };
 
 $setEnv('PIMCORE_PROJECT_ROOT', __DIR__ . '/app');
