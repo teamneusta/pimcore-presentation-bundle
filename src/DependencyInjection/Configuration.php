@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Neusta\Pimcore\PresentationBundle\DependencyInjection;
 
@@ -7,7 +7,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 class Configuration implements ConfigurationInterface
 {
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('neusta_pimcore_presentation');
 
