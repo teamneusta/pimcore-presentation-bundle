@@ -46,6 +46,4 @@ class AbstractConfigurableAreabrick extends AbstractTemplateAreabrick implements
                 $dialogBox->createNumeric('fragments-order', 0, 20),
             );
     }
-
-
 }
