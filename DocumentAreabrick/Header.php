@@ -2,9 +2,9 @@
 
 namespace Neusta\Pimcore\PresentationBundle\DocumentAreabrick;
 
-use Pimcore\Extension\Document\Areabrick\AbstractTemplateAreabrick;
+use Neusta\Pimcore\PresentationBundle\DocumentAreabrick\Base\AbstractConfigurableAreabrick;
 
-class Header extends AbstractTemplateAreabrick
+class Header extends AbstractConfigurableAreabrick
 {
     public function getName(): string
     {
