@@ -2,6 +2,7 @@
 
 namespace Neusta\Pimcore\PresentationBundle\DocumentAreabrick\Base;
 
+use Neusta\Pimcore\EditorConfigBundle\Document\Base\HasDialogBox;
 use Neusta\Pimcore\EditorConfigBundle\Document\EditableDialogBox\DialogBoxBuilder;
 use Pimcore\Extension\Document\Areabrick\AbstractTemplateAreabrick;
 use Pimcore\Extension\Document\Areabrick\EditableDialogBoxInterface;
