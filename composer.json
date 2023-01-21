@@ -1,5 +1,5 @@
 {
-  "name": "neusta/pimcore-presentation-bundle",
+  "name": "teamneusta/pimcore-presentation-bundle",
   "type": "pimcore-bundle",
   "description": "Allows to create online presentations in pimcore using reveal-js",
   "license": "GPL-3.0-or-later",
@@ -29,13 +29,21 @@
     "teamneusta/pimcore-editorconfig-bundle": "dev-feature/new-type-numeric-value"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.12",
+    "friendsofphp/php-cs-fixer": "^3.11",
+    "jangregor/phpstan-prophecy": "^1.0",
     "phpspec/prophecy-phpunit": "^2.0",
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan": "^1.8",
+    "phpstan/phpstan-phpunit": "^1.1",
+    "phpstan/phpstan-symfony": "^1.2",
     "phpunit/phpunit": "^9.3"
   },
   "config": {
     "preferred-install": "dist",
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "phpstan/extension-installer": true
+    }
   },
   "extra": {
     "pimcore": {
@@ -46,23 +54,25 @@
   },
   "autoload": {
     "psr-4": {
-      "Neusta\\Pimcore\\PresentationBundle\\": ""
-    },
-    "exclude-from-classmap": [
-      "/Tests/"
-    ]
+      "Neusta\\Pimcore\\PresentationBundle\\": "src/"
+    }
   },
   "autoload-dev": {
     "psr-4": {
-      "Neusta\\Pimcore\\PresentationBundle\\Tests\\": "Tests/"
+      "Neusta\\Pimcore\\PresentationBundle\\Tests\\": "tests/"
     }
   },
   "scripts": {
-    "cs": "php-cs-fixer fix -v --diff --dry-run",
-    "cs-fix": "php-cs-fixer fix -v --diff"
+    "cs:check": "php-cs-fixer fix -v --diff --dry-run",
+    "cs:fix": "php-cs-fixer fix -v --diff",
+    "phpstan": "phpstan analyse --level=${PHPSTAN_LEVEL:-8} -c phpstan.neon",
+    "phpstan:baseline": "phpstan analyse --level=${PHPSTAN_LEVEL:-8} -c phpstan.neon --generate-baseline",
+    "tests": "phpunit"
   },
   "scripts-descriptions": {
-    "cs": "Checks code style (but doesn't fix anything)",
-    "cs-fix": "Fixes code style"
+    "cs:check": "Checks code style (but doesn't fix anything)",
+    "cs:fix": "Checks and fixes code style",
+    "phpstan": "Checks code against phpstan rules",
+    "tests": "runs all the phpunit tests"
   }
 }
