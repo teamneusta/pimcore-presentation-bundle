@@ -4,10 +4,10 @@ namespace Neusta\Pimcore\PresentationBundle\DocumentAreabrick;
 
 use Pimcore\Extension\Document\Areabrick\AbstractTemplateAreabrick;
 
-class Code extends AbstractTemplateAreabrick
+class NeustaPresentationCode extends AbstractTemplateAreabrick
 {
     public function getName(): string
     {
-        return 'Code';
+        return 'Neusta Presentation Code';
     }
 }

@@ -4,10 +4,10 @@ namespace Neusta\Pimcore\PresentationBundle\DocumentAreabrick;
 
 use Pimcore\Extension\Document\Areabrick\AbstractTemplateAreabrick;
 
-class Wysiwyg extends AbstractTemplateAreabrick
+class NeustaPresentationImage extends AbstractTemplateAreabrick
 {
     public function getName(): string
     {
-        return 'Wysiwyg';
+        return 'Neusta Presentation Image';
     }
 }
