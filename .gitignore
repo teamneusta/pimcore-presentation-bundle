@@ -1,13 +1,14 @@
 # Composer
 /composer.lock
 /vendor/
-.idea/
 
 # PHP-CS-Fixer
 .php-cs-fixer.cache
 
 # PHPUnit
 .phpunit.result.cache
+/reports/
+/.phpunit.cache/
 
 # Reveal JS
 /public/reveal.js-master/
