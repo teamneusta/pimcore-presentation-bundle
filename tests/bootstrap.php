@@ -2,7 +2,7 @@
 
 use Neusta\Pimcore\TestingFramework\Pimcore\BootstrapPimcore;
 
-include __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 BootstrapPimcore::bootstrap(
     PIMCORE_PROJECT_ROOT: __DIR__ . '/app',
