@@ -11,7 +11,7 @@ class NeustaPimcorePresentationExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(\dirname(__DIR__, 2) . '/config'));
         $loader->load('services.yaml');
     }
 }

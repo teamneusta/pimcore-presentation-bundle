@@ -11,6 +11,12 @@
       "role": "Developer"
     }
   ],
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "phpstan/extension-installer": true
+    }
+  },
   "require": {
     "php": "^8.1",
     "pimcore/pimcore": "^10.0",
@@ -29,14 +35,8 @@
     "phpstan/phpstan": "^1.8",
     "phpstan/phpstan-phpunit": "^1.1",
     "phpstan/phpstan-symfony": "^1.2",
-    "phpunit/phpunit": "^9.3"
-  },
-  "config": {
-    "preferred-install": "dist",
-    "sort-packages": true,
-    "allow-plugins": {
-      "phpstan/extension-installer": true
-    }
+    "phpunit/phpunit": "^9.3",
+    "teamneusta/pimcore-testing-framework": "^0.11.0"
   },
   "extra": {
     "pimcore": {
@@ -53,19 +53,23 @@
   "autoload-dev": {
     "psr-4": {
       "Neusta\\Pimcore\\PresentationBundle\\Tests\\": "tests/"
-    }
+    },
+    "classmap": [
+      "tests/app/TestKernel.php"
+    ]
   },
   "scripts": {
-    "cs:check": "php-cs-fixer fix -v --diff --dry-run",
-    "cs:fix": "php-cs-fixer fix -v --diff",
-    "phpstan": "phpstan analyse --level=${PHPSTAN_LEVEL:-8} -c phpstan.neon",
-    "phpstan:baseline": "phpstan analyse --level=${PHPSTAN_LEVEL:-8} -c phpstan.neon --generate-baseline",
+    "cs:check": "@cs:fix --dry-run",
+    "cs:fix": "php-cs-fixer fix --ansi --verbose --diff",
+    "phpstan": "phpstan analyse --ansi --no-interaction",
+    "phpstan:baseline": "phpstan analyse --generate-baseline",
     "tests": "phpunit"
   },
   "scripts-descriptions": {
     "cs:check": "Checks code style (but doesn't fix anything)",
     "cs:fix": "Checks and fixes code style",
-    "phpstan": "Checks code against phpstan rules",
-    "tests": "runs all the phpunit tests"
+    "phpstan": "Checks for code smells",
+    "phpstan:baseline": "Creates a baseline for phpstan",
+    "tests": "Run all phpunit tests"
   }
 }

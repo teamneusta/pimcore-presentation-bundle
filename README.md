@@ -10,36 +10,47 @@ Allows to create online presentations in Pimcore using [reveal-js](https://revea
 
 ## Installation
 
-Require via Composer
+1. **Require the bundle**
 
-```shell
-composer require teamneusta/pimcore-presentation-bundle
-```
+   ```shell
+   composer require teamneusta/pimcore-presentation-bundle
+   ```
 
-As this is a Pimcore bundle, enable and install it
-```shell
-console pimcore:bundle:enable NeustaPimcorePresentationBundle
-console pimcore:bundle:install NeustaPimcorePresentationBundle
-```
+2. **Enable the bundle**
 
-### Install reveal.js
+   Add the Presentation Bundle to your `config/bundles.php`:
 
-After the Bundle is installed it is required to manually install reveal-js
+   ```
+   Neusta\Pimcore\PresentationBundle\NeustaPimcorePresentationBundle::class => ['all' => true],
+   ```
 
-```shell
-cd vendor/teamneusta/pimcore-presentation-bundle/public
-curl -OL https://github.com/hakimel/reveal.js/archive/master.zip
-unzip master.zip
-rm master.zip
-```
+3. **Install the bundle**
+
+   ```shell
+   bin/console pimcore:bundle:install NeustaPimcorePresentationBundle
+   ```
+
+4. **Install reveal.js**
+
+   After the Bundle is installed it is required to manually install reveal-js
+
+   ```shell
+   cd vendor/teamneusta/pimcore-presentation-bundle/public
+   curl -OL https://github.com/hakimel/reveal.js/archive/master.zip
+   unzip master.zip
+   rm master.zip
+   ```
 
 ## Usage
 
-Create new Pimcore document pages using the Document Types offered by this bundle. [See documentation for more details](docs/index.md)
+Create new Pimcore document pages using the Document Types offered by this
+bundle. [See documentation for more details](docs/index.md)
 
 ## Configuration
 
-The bundle provides a handful of _simple_ areabricks for creating presentations. When the bundle is used together with other bundles, there may be collisions of areabrick names or you may simply not be interested in using the _default_ bricks. It is possible to disable the included areabricks with the following configuration
+The bundle provides a handful of _simple_ areabricks for creating presentations. When the bundle is used together with
+other bundles, there may be collisions of areabrick names or you may simply not be interested in using the _default_
+bricks. It is possible to disable the included areabricks with the following configuration
 
 ```yaml
 neusta_pimcore_presentation:
@@ -52,20 +63,18 @@ Feel free to open issues for any bug, feature request, or other ideas.
 
 Please remember to create an issue before creating large pull requests.
 
-### Running tests for development
+### Local Development
+
+To develop on local machine, the vendor dependencies are required.
 
 ```shell
-docker run -it --rm -v $(pwd):/app -w /app pimcore/pimcore:PHP8.1-cli composer install --ignore-platform-reqs
-docker run -it --rm -v $(pwd):/app -w /app pimcore/pimcore:PHP8.1-cli composer test
+bin/composer install
 ```
 
-### Further development
-
-Pipelines will tell you, when code does not meet our standards. To use the same tools in local development, take the Docker command from above with other scripts from the `composer.json`. For example:
-
-* cs:check
-* phpstan
+We use composer scripts for our main quality tools. They can be executed via the `bin/composer` file as well.
 
 ```shell
-docker run -it --rm -v $(pwd):/app -w /app pimcore/pimcore:PHP8.1-cli composer <composer-script>
+bin/composer cs:fix
+bin/composer phpstan
+bin/composer tests
 ```
