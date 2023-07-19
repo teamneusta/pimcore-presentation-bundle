@@ -10,29 +10,36 @@ Allows to create online presentations in Pimcore using [reveal-js](https://revea
 
 ## Installation
 
-Require via Composer
+1. **Require the bundle**
 
-```shell
-composer require teamneusta/pimcore-presentation-bundle
-```
+   ```shell
+   composer require teamneusta/pimcore-presentation-bundle
+   ```
 
-As this is a Pimcore bundle, enable and install it
+2. **Enable the bundle**
 
-```shell
-console pimcore:bundle:enable NeustaPimcorePresentationBundle
-console pimcore:bundle:install NeustaPimcorePresentationBundle
-```
+   Add the Presentation Bundle to your `config/bundles.php`:
 
-### Install reveal.js
+   ```
+   Neusta\Pimcore\PresentationBundle\NeustaPimcorePresentationBundle::class => ['all' => true],
+   ```
 
-After the Bundle is installed it is required to manually install reveal-js
+3. **Install the bundle**
 
-```shell
-cd vendor/teamneusta/pimcore-presentation-bundle/public
-curl -OL https://github.com/hakimel/reveal.js/archive/master.zip
-unzip master.zip
-rm master.zip
-```
+   ```shell
+   bin/console pimcore:bundle:install NeustaPimcorePresentationBundle
+   ```
+
+4. **Install reveal.js**
+
+   After the Bundle is installed it is required to manually install reveal-js
+
+   ```shell
+   cd vendor/teamneusta/pimcore-presentation-bundle/public
+   curl -OL https://github.com/hakimel/reveal.js/archive/master.zip
+   unzip master.zip
+   rm master.zip
+   ```
 
 ## Usage
 
@@ -69,5 +76,5 @@ We use composer scripts for our main quality tools. They can be executed via the
 ```shell
 bin/composer cs:fix
 bin/composer phpstan
-bin/composer test
+bin/composer tests
 ```

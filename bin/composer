@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec docker compose run --rm --user "$(id -u):$(id -g)" php composer "$@"
+exec docker compose run --rm --user "$(id -u):$(id -g)" --no-deps php composer "$@"

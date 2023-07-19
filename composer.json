@@ -11,6 +11,12 @@
       "role": "Developer"
     }
   ],
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "phpstan/extension-installer": true
+    }
+  },
   "require": {
     "php": "^8.1",
     "pimcore/pimcore": "^10.0",
@@ -32,13 +38,6 @@
     "phpunit/phpunit": "^9.3",
     "teamneusta/pimcore-testing-framework": "^0.11.0"
   },
-  "config": {
-    "preferred-install": "dist",
-    "sort-packages": true,
-    "allow-plugins": {
-      "phpstan/extension-installer": true
-    }
-  },
   "extra": {
     "pimcore": {
       "bundles": [
@@ -54,7 +53,10 @@
   "autoload-dev": {
     "psr-4": {
       "Neusta\\Pimcore\\PresentationBundle\\Tests\\": "tests/"
-    }
+    },
+    "classmap": [
+      "tests/app/TestKernel.php"
+    ]
   },
   "scripts": {
     "cs:check": "@cs:fix --dry-run",

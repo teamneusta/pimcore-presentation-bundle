@@ -128,7 +128,7 @@ class Installer extends AbstractInstaller
      */
     private function getDocumentTypeDefinitions(): array
     {
-        return require dirname(__DIR__) . \DIRECTORY_SEPARATOR .
+        return require \dirname(__DIR__) . \DIRECTORY_SEPARATOR .
             'config' . \DIRECTORY_SEPARATOR .
             'document-types.php';
     }

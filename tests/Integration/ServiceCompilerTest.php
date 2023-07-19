@@ -6,6 +6,11 @@ use Pimcore\Test\KernelTestCase;
 
 class ServiceCompilerTest extends KernelTestCase
 {
+    protected function setUp(): void
+    {
+        self::getContainer();
+    }
+
     /** @test */
     public function symfonyServiceDefinitionsMustCompile(): void
     {
