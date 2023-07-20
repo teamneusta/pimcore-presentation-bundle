@@ -20,7 +20,7 @@ Allows to create online presentations in Pimcore using [reveal-js](https://revea
 
    Add the Presentation Bundle to your `config/bundles.php`:
 
-   ```
+   ```php
    Neusta\Pimcore\PresentationBundle\NeustaPimcorePresentationBundle::class => ['all' => true],
    ```
 
