@@ -28,12 +28,12 @@ return (new PhpCsFixer\Config)
         'single_line_throw' => false, // overwrite @Symfony
 
         // we want spaces
-        'concat_space' => ['spacing' => 'one'],
+        'concat_space' => ['spacing' => 'one'], // overwrite @Symfony
 
         // we want to leave the choice to the developer,
         // because some people have their own style of naming test methods
-        'php_unit_method_casing' => false,
+        'php_unit_method_casing' => false, // overwrite @Symfony
 
         // we want to leave the choice to the developer
-        'php_unit_test_annotation' => false,
+        'php_unit_test_annotation' => false, // overwrite @Symfony:risky
     ]);
