@@ -55,7 +55,7 @@ class PresentationExtensionTest extends TestCase
         self::assertSame('theme filename of parent document', $presentationExtension->getThemeFile($context));
     }
 
-    private function createDocumentWithEditableMock(?Document\Editable $themeEditable, ?Document\PageSnippet $parent = null): Document\PageSnippet
+    private function createDocumentWithEditableMock(?Document\Editable $themeEditable, Document\PageSnippet $parent = null): Document\PageSnippet
     {
         $document = $this->prophesize(Document\PageSnippet::class);
         $document
