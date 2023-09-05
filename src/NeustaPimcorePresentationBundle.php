@@ -14,16 +14,6 @@ class NeustaPimcorePresentationBundle extends AbstractPimcoreBundle
         return \dirname(__DIR__);
     }
 
-    public function getNiceName()
-    {
-        return 'Neusta Presentation Bundle';
-    }
-
-    public function getDescription()
-    {
-        return 'Allows to turn Pages into Presentations';
-    }
-
     public function getJsPaths()
     {
         return [
@@ -34,10 +24,5 @@ class NeustaPimcorePresentationBundle extends AbstractPimcoreBundle
     public function getInstaller()
     {
         return new Installer();
-    }
-
-    protected function getComposerPackageName(): string
-    {
-        return 'teamneusta/pimcore-presentation-bundle';
     }
 }
