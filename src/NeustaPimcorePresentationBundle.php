@@ -25,4 +25,9 @@ class NeustaPimcorePresentationBundle extends AbstractPimcoreBundle
     {
         return new Installer();
     }
+
+    protected function getComposerPackageName(): string
+    {
+        return 'teamneusta/pimcore-presentation-bundle';
+    }
 }
