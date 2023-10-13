@@ -5,6 +5,7 @@ namespace Neusta\Pimcore\PresentationBundle\Tests\Renderer;
 use Neusta\Pimcore\PresentationBundle\Renderer\SimplePresentationRenderer;
 use Neusta\Pimcore\PresentationBundle\Renderer\SlideRenderer;
 use PHPUnit\Framework\TestCase;
+use Pimcore\Model\Document\Listing;
 use Pimcore\Model\Document\PageSnippet;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
@@ -32,9 +33,11 @@ class SimplePresentationRendererTest extends TestCase
     public function renderPresentationWithoutSlidesRendersNothing(): void
     {
         $presentation = $this->prophesize(PageSnippet::class);
+        $documentListing = new Listing();
+        $documentListing->setData([]);
         $presentation
             ->getChildren()
-            ->willReturn([]);
+            ->willReturn($documentListing);
 
         $renderedPresentation = $this->presentationRenderer->renderPresentation($presentation->reveal());
 
@@ -53,12 +56,11 @@ class SimplePresentationRendererTest extends TestCase
         $slide2 = $this->createSlideMock();
 
         $presentation = $this->prophesize(PageSnippet::class);
+        $documentListing = new Listing();
+        $documentListing->setData([$slide1, $slide2]);
         $presentation
             ->getChildren()
-            ->willReturn([
-                $slide1,
-                $slide2,
-            ]);
+            ->willReturn($documentListing);
 
         $this->slideRenderer
             ->renderSlide($slide1)
