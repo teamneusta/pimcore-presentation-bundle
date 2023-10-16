@@ -24,8 +24,6 @@ jobs:
           - php-version: "8.1"
             dependencies: "highest" # Pimcore 11.*
           - php-version: "8.2"
-            dependencies: "lowest" # Pimcore 10.5.0
-          - php-version: "8.2"
             dependencies: "highest" # Pimcore 11.*
 
     steps:
