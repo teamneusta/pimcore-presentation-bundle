@@ -11,14 +11,14 @@ class AdminAssetsListener implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            BundleManagerEvents::JS_PATHS => 'onJsPaths'
+            BundleManagerEvents::JS_PATHS => 'onJsPaths',
         ];
     }
 
     public function onJsPaths(PathsEvent $event): void
     {
         $event->setPaths(array_merge($event->getPaths(), [
-            '/bundles/presentation/js/pimcore/startup.js'
+            '/bundles/presentation/js/pimcore/startup.js',
         ]));
     }
 }
