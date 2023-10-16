@@ -15,7 +15,9 @@ class SimpleSlideRenderer implements SlideRenderer
     {
         $slideMarkup = $this->renderDocument($slide);
         foreach ($slide->getChildren() as $subSlide) {
-            $slideMarkup .= $this->renderSlide($subSlide);
+            if ($subSlide) {
+                $slideMarkup .= $this->renderSlide($subSlide);
+            }
         }
 
         return $slideMarkup;

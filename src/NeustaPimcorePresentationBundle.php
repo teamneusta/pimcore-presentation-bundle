@@ -3,6 +3,7 @@
 namespace Neusta\Pimcore\PresentationBundle;
 
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
+use Pimcore\Extension\Bundle\Installer\InstallerInterface;
 use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
 
 class NeustaPimcorePresentationBundle extends AbstractPimcoreBundle
@@ -14,14 +15,7 @@ class NeustaPimcorePresentationBundle extends AbstractPimcoreBundle
         return \dirname(__DIR__);
     }
 
-    public function getJsPaths()
-    {
-        return [
-            '/bundles/presentation/js/pimcore/startup.js',
-        ];
-    }
-
-    public function getInstaller()
+    public function getInstaller(): ?InstallerInterface
     {
         return new Installer();
     }

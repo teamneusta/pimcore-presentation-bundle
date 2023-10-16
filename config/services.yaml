@@ -1,19 +1,23 @@
 services:
-    _defaults:
-        autowire: true
-        autoconfigure: true
-        bind:
-            $revealJsPublicPath: '/bundles/neustapimcorepresentation/reveal.js-master'
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    bind:
+      $revealJsPublicPath: '/bundles/neustapimcorepresentation/reveal.js-master'
 
-    Neusta\Pimcore\PresentationBundle\Controller\:
-        resource: '../src/Controller'
-        public: true
-        tags: ['controller.service_arguments']
+  Neusta\Pimcore\PresentationBundle\Controller\:
+    resource: '../src/Controller'
+    public: true
+    tags: [ 'controller.service_arguments' ]
 
-    Neusta\Pimcore\PresentationBundle\Renderer\SimplePresentationRenderer: ~
-    Neusta\Pimcore\PresentationBundle\Renderer\PresentationRenderer:
-        alias: Neusta\Pimcore\PresentationBundle\Renderer\SimplePresentationRenderer
-    Neusta\Pimcore\PresentationBundle\Renderer\SimpleSlideRenderer: ~
-    Neusta\Pimcore\PresentationBundle\Renderer\SlideRenderer:
-        alias: Neusta\Pimcore\PresentationBundle\Renderer\SimpleSlideRenderer
-    Neusta\Pimcore\PresentationBundle\Twig\PresentationExtension: ~
+  Neusta\Pimcore\PresentationBundle\EventListener\:
+    resource: '../src/EventListener'
+    tags: [ 'kernel.event_listener' ]
+
+  Neusta\Pimcore\PresentationBundle\Renderer\SimplePresentationRenderer: ~
+  Neusta\Pimcore\PresentationBundle\Renderer\PresentationRenderer:
+    alias: Neusta\Pimcore\PresentationBundle\Renderer\SimplePresentationRenderer
+  Neusta\Pimcore\PresentationBundle\Renderer\SimpleSlideRenderer: ~
+  Neusta\Pimcore\PresentationBundle\Renderer\SlideRenderer:
+    alias: Neusta\Pimcore\PresentationBundle\Renderer\SimpleSlideRenderer
+  Neusta\Pimcore\PresentationBundle\Twig\PresentationExtension: ~
